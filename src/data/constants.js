@@ -214,8 +214,8 @@ export const projects = [
       "https://repository-images.githubusercontent.com/827390647/8b1b831f-4a77-4fbf-bb65-6c88a98306f2",
     tags: ["HTML", "CSS", "Javascript", "Bootstrap", "reactjs", "responsive","website"],
     category: "Web",
-    github: "https://github.com/sibisiddharth08/varunahkce.git",
-    webapp: "https://varunahkce.netlify.app/",
+    github: "https://github.com/sibisiddharth8/RoyalConnect2k24.git",
+    webapp: "https://sibisiddharth8.github.io/RoyalConnect2k24/",
     member: [
       {
         name: "Sibi Siddharth S",
