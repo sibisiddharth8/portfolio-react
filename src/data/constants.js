@@ -11,9 +11,7 @@ export const Bio = {
   resume:
     "https://drive.google.com/file/d/1QsUlKN2ce7pzFkLycwidih7JJD_oKdGm/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/sibisiddharths/",
-  twitter: "https://twitter.com",
   insta: "https://www.instagram.com/sibi_siddharth/",
-  facebook: "https://www.facebook.com",
 };
 
 export const skills = [
@@ -206,6 +204,33 @@ export const education = [
 ];
 
 export const projects = [
+  {
+    id: 0,
+    title: "RoyalConnect2k24",
+    date: "July 2024 - Present",
+    description:
+      "This project is the official website of the Rotaract Club of Coimbatore Royals! Meticulously crafted using ReactJS, this site provides an informative, interactive, and user-friendly experience for both our club members and visitors.",
+    image:
+      "https://repository-images.githubusercontent.com/827390647/8b1b831f-4a77-4fbf-bb65-6c88a98306f2",
+    tags: ["HTML", "CSS", "Javascript", "Bootstrap", "reactjs", "responsive","website"],
+    category: "Web",
+    github: "https://github.com/sibisiddharth08/varunahkce.git",
+    webapp: "https://varunahkce.netlify.app/",
+    member: [
+      {
+        name: "Sibi Siddharth S",
+        img: "https://media.licdn.com/dms/image/D5635AQGQgO9punmYlA/profile-framedphoto-shrink_400_400/0/1710523913903?e=1720900800&v=beta&t=SDW46pkcaSrFggTOpFOuXErT1KziA4M0Wgmojq9Vqb0",
+        linkedin: "https://www.linkedin.com/in/sibisiddharths/",
+        github: "https://github.com/sibisiddharth8/",
+      },
+      {
+        name: "PraveenKumar S",
+        img: "https://media.licdn.com/dms/image/D5635AQHlKIsUsKuZYw/profile-framedphoto-shrink_400_400/0/1708093421109?e=1720900800&v=beta&t=XlAgrHlu8k_QtioJ_UThBwLjOXw6O3Gbn5RoFAJwG1E",
+        linkedin: "https://www.linkedin.com/in/praveensiva77/",
+        github: "https://github.com/PraveenSiva77",
+      },
+    ],
+  },
   {
     id: 0,
     title: "VisionSoC",
