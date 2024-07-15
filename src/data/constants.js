@@ -1,3 +1,10 @@
+import my_profile_pic from "../images/my_profile_pic.jpg"
+import my_pic from "../images/my_pic.jpg"
+import sivakumar_pic from "../images/sivakumar_pic.jpg"
+import akka_pic from "../images/akka_pic.jpg"
+import mani_pic from "../images/mani_pic.jpg"
+import motta_pic from "../images/motta_pic.jpg"
+
 export const Bio = {
   name: "Sibi Siddharth S",
   roles: [
@@ -209,7 +216,7 @@ export const projects = [
     title: "RoyalConnect2k24",
     date: "July 2024 - Present",
     description:
-      "This project is the official website of the Rotaract Club of Coimbatore Royals! Meticulously crafted using ReactJS, this site provides an informative, interactive, and user-friendly experience for both our club members and visitors.",
+      "Developed and maintained the official website of the Rotaract Club of Coimbatore Royals, 'RoyalConnect2k24.' The project was built using ReactJS, HTML, CSS, JavaScript, and React Bootstrap, ensuring a responsive and user-friendly interface. Utilized Figma for UI design, emphasizing a modern and cohesive visual experience.",
     image:
       "https://repository-images.githubusercontent.com/827390647/8b1b831f-4a77-4fbf-bb65-6c88a98306f2",
     tags: ["HTML", "CSS", "Javascript", "Bootstrap", "reactjs", "responsive","website"],
@@ -219,13 +226,13 @@ export const projects = [
     member: [
       {
         name: "Sibi Siddharth S",
-        img: "https://media.licdn.com/dms/image/D5635AQGQgO9punmYlA/profile-framedphoto-shrink_400_400/0/1710523913903?e=1720900800&v=beta&t=SDW46pkcaSrFggTOpFOuXErT1KziA4M0Wgmojq9Vqb0",
+        img: my_pic,
         linkedin: "https://www.linkedin.com/in/sibisiddharths/",
         github: "https://github.com/sibisiddharth8/",
       },
       {
         name: "PraveenKumar S",
-        img: "https://media.licdn.com/dms/image/D5635AQHlKIsUsKuZYw/profile-framedphoto-shrink_400_400/0/1708093421109?e=1720900800&v=beta&t=XlAgrHlu8k_QtioJ_UThBwLjOXw6O3Gbn5RoFAJwG1E",
+        img: sivakumar_pic,
         linkedin: "https://www.linkedin.com/in/praveensiva77/",
         github: "https://github.com/PraveenSiva77",
       },
@@ -236,7 +243,7 @@ export const projects = [
     title: "VisionSoC",
     date: "April 2024 - May 2024",
     description:
-      "An Image Upscaling Application utilizing ESRGAN (Enhanced Super Resolution Generative Adversarial Network) to dramatically enhance image quality, ensuring exceptional clarity and detail preservation.",
+      "Developed VisionSoC, an advanced image upscaling model using Enhanced Super Resolution Generative Adversarial Networks (ESRGAN) with Python, leveraging frameworks such as TensorFlow and Keras. Created a comprehensive web-based application for the model using HTML, CSS, and JavaScript, and integrated the frontend with the backend using Flask.",
     image:
       "https://repository-images.githubusercontent.com/789139946/53b77381-66a5-4315-a2f7-a177e92d32f3",
     tags: [
@@ -255,31 +262,31 @@ export const projects = [
     member: [
       {
         name: "Sibi Siddharth S",
-        img: "https://media.licdn.com/dms/image/D5635AQGQgO9punmYlA/profile-framedphoto-shrink_400_400/0/1710523913903?e=1720900800&v=beta&t=SDW46pkcaSrFggTOpFOuXErT1KziA4M0Wgmojq9Vqb0",
+        img: my_pic,
         linkedin: "https://www.linkedin.com/in/sibisiddharths/",
         github: "https://github.com/sibisiddharth8/",
       },
       {
         name: "PraveenKumar S",
-        img: "https://media.licdn.com/dms/image/D5635AQHlKIsUsKuZYw/profile-framedphoto-shrink_400_400/0/1708093421109?e=1720900800&v=beta&t=XlAgrHlu8k_QtioJ_UThBwLjOXw6O3Gbn5RoFAJwG1E",
+        img: sivakumar_pic,
         linkedin: "https://www.linkedin.com/in/praveensiva77/",
         github: "https://github.com/PraveenSiva77",
       },
       {
         name: "Arivumani A",
-        img: "https://media.licdn.com/dms/image/D4E03AQFcV0SwrhvQ1Q/profile-displayphoto-shrink_400_400/0/1695908726431?e=1725494400&v=beta&t=D_m40MFwYo-L7exfj7ehQiXKRZNZ4P8BSocgo_5gjQw",
+        img: mani_pic,
         linkedin: "https://www.linkedin.com/in/arivu-mani-b3069a293/",
         github: "https://github.com",
       },
       {
         name: "Srinivasan R",
-        img: "https://media.licdn.com/dms/image/D5603AQHYnjG1pacb5Q/profile-displayphoto-shrink_400_400/0/1718877900263?e=1725494400&v=beta&t=b8_saezkl8KWkFBmFu_ZIqCPHRLxnLKRqbJRGymWh-g",
+        img: akka_pic,
         linkedin: "https://www.linkedin.com/in/srinivasan-r-02766322a/",
         github: "https://github.com/Parker4207",
       },
       {
         name: "Surya B",
-        img: "https://media.licdn.com/dms/image/D5603AQGE5O3hV7dXbQ/profile-displayphoto-shrink_400_400/0/1698572866914?e=1725494400&v=beta&t=I4YzcnZEgHS43QmElAaXxugpQ4BHde_eMvhfRsPfqdQ",
+        img: motta_pic,
         linkedin: "https://www.linkedin.com/in/surya-btechi/",
         github: "https://github.com/saisurya7860",
       },
@@ -290,7 +297,7 @@ export const projects = [
     title: "Varunah2k24",
     date: "Feb 2024 - March 2024",
     description:
-      "Designed and developed a website for the One Day National Level Technical Symposium at Kathir College of Engineering for the academic year 2024-2025. The website features intuitive navigations, comprehensive event details, user-friendly registration forms and interactive elements optimized for the users.",
+      "Developed Varunah2k24, the official website for Kathir College of Engineering's one-day national level technical symposium. The project was built using HTML, CSS, JavaScript, Bootstrap, and Ajax, ensuring optimal performance and responsiveness on both desktop and mobile platforms. Additionally, created event posters and designs using Canva.",
     image:
       "https://repository-images.githubusercontent.com/771018463/11dbc197-cd99-4ee0-9eaa-86d02d6e543d",
     tags: ["HTML", "CSS", "Javascript", "Bootstrap", "Google Forms", "Canva", "UI/UX Designing"],
@@ -300,13 +307,13 @@ export const projects = [
     member: [
       {
         name: "Sibi Siddharth S",
-        img: "https://media.licdn.com/dms/image/D5635AQGQgO9punmYlA/profile-framedphoto-shrink_400_400/0/1710523913903?e=1720900800&v=beta&t=SDW46pkcaSrFggTOpFOuXErT1KziA4M0Wgmojq9Vqb0",
+        img: my_pic,
         linkedin: "https://www.linkedin.com/in/sibisiddharths/",
         github: "https://github.com/sibisiddharth8/",
       },
       {
         name: "PraveenKumar S",
-        img: "https://media.licdn.com/dms/image/D5635AQHlKIsUsKuZYw/profile-framedphoto-shrink_400_400/0/1708093421109?e=1720900800&v=beta&t=XlAgrHlu8k_QtioJ_UThBwLjOXw6O3Gbn5RoFAJwG1E",
+        img: sivakumar_pic,
         linkedin: "https://www.linkedin.com/in/praveensiva77/",
         github: "https://github.com/PraveenSiva77",
       },
@@ -317,7 +324,7 @@ export const projects = [
     title: "ChatSoC",
     date: "March 2023 - May 2023 ",
     description:
-      "An AI-powered Chat Bot designed to facilitate human-like conversations and offers additional functionalities such as QR login mechanism, AI Image Generation and Youtube Video downloader through the use of APIs and natural language processing (NLP).",
+      "Developed 'ChatSoC,' an advanced chatbot using OpenAI's API in Python, featuring capabilities such as text-to-voice output, voice-to-text input, QR login mechanism using OpenCV, AI image generation with DALL-E, YouTube video downloading, and Wikipedia content referencing.",
     image:
       "https://repository-images.githubusercontent.com/699181811/7f39d29e-a66c-4121-a0b0-f5a6a4799e80",
     tags: [
@@ -333,31 +340,31 @@ export const projects = [
     member: [
       {
         name: "Sibi Siddharth S",
-        img: "https://media.licdn.com/dms/image/D5635AQGQgO9punmYlA/profile-framedphoto-shrink_400_400/0/1710523913903?e=1720900800&v=beta&t=SDW46pkcaSrFggTOpFOuXErT1KziA4M0Wgmojq9Vqb0",
+        img: my_pic,
         linkedin: "https://www.linkedin.com/in/sibisiddharths/",
         github: "https://github.com/sibisiddharth8/",
       },
       {
         name: "Srinivasan R",
-        img: "https://media.licdn.com/dms/image/D5603AQHYnjG1pacb5Q/profile-displayphoto-shrink_400_400/0/1718877900263?e=1725494400&v=beta&t=b8_saezkl8KWkFBmFu_ZIqCPHRLxnLKRqbJRGymWh-g",
+        img: akka_pic,
         linkedin: "https://www.linkedin.com/in/srinivasan-r-02766322a/",
         github: "https://github.com/Parker4207",
       },
       {
         name: "Surya B",
-        img: "https://media.licdn.com/dms/image/D5603AQGE5O3hV7dXbQ/profile-displayphoto-shrink_400_400/0/1698572866914?e=1725494400&v=beta&t=I4YzcnZEgHS43QmElAaXxugpQ4BHde_eMvhfRsPfqdQ",
+        img: motta_pic,
         linkedin: "https://www.linkedin.com/in/surya-btechi/",
         github: "https://github.com/saisurya7860",
       },
       {
         name: "Arivumani A",
-        img: "https://media.licdn.com/dms/image/D4E03AQFcV0SwrhvQ1Q/profile-displayphoto-shrink_400_400/0/1695908726431?e=1725494400&v=beta&t=D_m40MFwYo-L7exfj7ehQiXKRZNZ4P8BSocgo_5gjQw",
+        img: mani_pic,
         linkedin: "https://www.linkedin.com/in/arivu-mani-b3069a293/",
         github: "https://github.com",
       },
       {
         name: "PraveenKumar S",
-        img: "https://media.licdn.com/dms/image/D5635AQHlKIsUsKuZYw/profile-framedphoto-shrink_400_400/0/1708093421109?e=1720900800&v=beta&t=XlAgrHlu8k_QtioJ_UThBwLjOXw6O3Gbn5RoFAJwG1E",
+        img: sivakumar_pic,
         linkedin: "https://www.linkedin.com/in/praveensiva77/",
         github: "https://github.com/PraveenSiva77",
       },

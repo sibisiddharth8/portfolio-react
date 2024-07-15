@@ -3,6 +3,7 @@ import HeroBgAnimation from '../HeroBgAnimation'
 import { HeroContainer, HeroBg, HeroLeftContainer, Img, HeroRightContainer, HeroInnerContainer, TextLoop, Title, Span, SubTitle,SocialMediaIcons,SocialMediaIcon, ResumeButton } from './HeroStyle'
 import Typewriter from 'typewriter-effect';
 import { Bio } from '../../data/constants';
+import my_profile_pic from "../../images/my_profile_pic.jpg";
 
 const HeroSection = () => {
     return (
@@ -32,7 +33,7 @@ const HeroSection = () => {
 
                     <HeroRightContainer id="Right">
 
-                        <Img src={"https://avatars.githubusercontent.com/u/146215243?v=4"} alt="hero-image" />
+                        <Img src={my_profile_pic} alt="hero-image" />
                     </HeroRightContainer>
                 </HeroInnerContainer>
 
