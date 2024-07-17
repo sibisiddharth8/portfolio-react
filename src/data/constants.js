@@ -249,7 +249,6 @@ export const projects = [
     tags: [
       "HTML",
       "CSS",
-      "Javascript",
       "Flask",
       "Python",
       "GAN",
@@ -329,7 +328,7 @@ export const projects = [
       "https://repository-images.githubusercontent.com/699181811/7f39d29e-a66c-4121-a0b0-f5a6a4799e80",
     tags: [
       "Python",
-      "NLP(Natural Language Processing)",
+      "Natural Language Processing",
       "ML",
       "API",
       "OpenAI"
