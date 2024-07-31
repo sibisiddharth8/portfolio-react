@@ -142,10 +142,14 @@ export const experiences = [
     skills: [
       "HTML",
       "CSS",
-      "Javascript",
+      "JS",
       "Bootstrap",
       "Reactjs",
-      "Javascript",
+      "AI",
+      "ML",
+      "DL",
+      "Python"
+
     ],
     doc: "",
   },
