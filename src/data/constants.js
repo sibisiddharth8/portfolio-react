@@ -1,9 +1,15 @@
 import my_profile_pic from "../images/my_profile_pic.jpg"
 import my_pic from "../images/my_pic.jpg"
+
 import sivakumar_pic from "../images/sivakumar_pic.jpg"
 import akka_pic from "../images/akka_pic.jpg"
 import mani_pic from "../images/mani_pic.jpg"
 import motta_pic from "../images/motta_pic.jpg"
+import vettikili_pic from "../images/vettikili.png"
+import potato_pic from "../images/potato.jpg"
+
+import projectpic1 from "../images/project-temp-img-1.png"
+import projectpic2 from "../images/vitthai.png"
 
 export const Bio = {
   name: "Sibi Siddharth S",
@@ -134,7 +140,7 @@ export const skills = [
 export const experiences = [
   {
     id: 0,
-    img: "https://static.vecteezy.com/system/resources/previews/013/438/570/large_2x/soc-letter-logo-design-in-illustration-logo-calligraphy-designs-for-logo-poster-invitation-etc-free-vector.jpg",
+    img: "https://avatars.githubusercontent.com/u/146237001?v=4",
     role: "Frontend & Python Developer",
     company: "SquadofCreators",
     date: "sept 2021 - Present",
@@ -191,7 +197,7 @@ export const education = [
     school: "Kathir College of Engineering",
     date: "2021 - 2025",
     grade: "7.93 CGPA",
-    desc: "I am currently pursuing B.Tech Artificial Intelligence and Data Science at Kathir College of Engineering. I have completed 6 semesters and have a CGPA of 7.93. I have taken courses in Reactjs, Web Development, Machine Learning, Deep Learning. I am was also a member of the Rotaract Club of Kathir College of Engineering, where I learned additional softskills.",
+    desc: "I am currently pursuing B.Tech Artificial Intelligence and Data Science at Kathir College of Engineering. I have completed 6 semesters and have a CGPA of 7.93. I have taken courses in Reactjs, Web Development, Machine Learning, Deep Learning. I was also a member of the Rotaract Club of Kathir College of Engineering, where I learned additional softskills.",
     degree: "Bachelor of Technology - BTech, Artificial Intelligence and Data Science",
   },
   {
@@ -217,8 +223,66 @@ export const education = [
 export const projects = [
   {
     id: 0,
-    title: "RoyalConnect2k24",
+    title: "FaceFusion",
     date: "July 2024 - Present",
+    description:
+      "Developing a Face swapping & enhancement application to aid in cinema industry.",
+    image: projectpic2,
+    tags: ["Deep Learning", "InsightFace", "GFPGAN", "Real-ESRGAN", "Python"],
+    category: "Deep Learning",
+    github: "",
+    webapp: "",
+    member: [
+      {
+        name: "Sibi Siddharth S",
+        img: my_pic,
+        linkedin: "https://www.linkedin.com/in/sibisiddharths/",
+        github: "https://github.com/sibisiddharth8/",
+      },
+      {
+        name: "Yuva nandhini",
+        img: potato_pic,
+        linkedin: "https://www.linkedin.com/in/yuvanandhinim/",
+        github: "https://github.com/YUVANANDHINI1",
+      },
+      {
+        name: "Pradnya K T",
+        img: vettikili_pic,
+        linkedin: "https://www.linkedin.com/in/pradnya-k-t-8bb01a253/",
+        github: "https://github.com/Pradnya2003",
+      },
+    ],
+  },
+  {
+    id: 0,
+    title: "MCommerce Website",
+    date: "July 2024 - Present (waiting for client response)",
+    description:
+      "Developing a MCommerce website for a Client.",
+    image: projectpic1,
+    tags: ["HTML", "CSS", "Javascript", "Bootstrap", "reactjs", "responsive","website"],
+    category: "Web",
+    github: "",
+    webapp: "",
+    member: [
+      {
+        name: "Sibi Siddharth S",
+        img: my_pic,
+        linkedin: "https://www.linkedin.com/in/sibisiddharths/",
+        github: "https://github.com/sibisiddharth8/",
+      },
+      {
+        name: "PraveenKumar S",
+        img: sivakumar_pic,
+        linkedin: "https://www.linkedin.com/in/praveensiva77/",
+        github: "https://github.com/PraveenSiva77",
+      },
+    ],
+  },
+  {
+    id: 0,
+    title: "RoyalConnect2k24",
+    date: "July 2024 - Present (waiting for client response)",
     description:
       "Developed and maintained the official website of the Rotaract Club of Coimbatore Royals, 'RoyalConnect2k24.' The project was built using ReactJS, HTML, CSS, JavaScript, and React Bootstrap, ensuring a responsive and user-friendly interface. Utilized Figma for UI design, emphasizing a modern and cohesive visual experience.",
     image:
@@ -251,13 +315,13 @@ export const projects = [
     image:
       "https://repository-images.githubusercontent.com/789139946/53b77381-66a5-4315-a2f7-a177e92d32f3",
     tags: [
-      "HTML",
-      "CSS",
-      "Flask",
       "Python",
       "GAN",
       "ESRGAN",
-      "Deep Learning"
+      "Deep Learning",
+      "HTML",
+      "CSS",
+      "Flask"
     ],
     category: "Deep Learning",
     github: "https://github.com/sibisiddharth8/VisionSoC.git",
