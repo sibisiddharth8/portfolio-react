@@ -258,7 +258,7 @@ export const projects = [
     title: "ECommerce Website",
     date: "July 2024 - Present (waiting for client response)",
     description:
-      "Developing a MCommerce website for a Client.",
+      "Developing a ECommerce website for a Client.",
     image: projectpic1,
     tags: ["HTML", "CSS", "Javascript", "Bootstrap", "reactjs", "responsive","website"],
     category: "Web",
