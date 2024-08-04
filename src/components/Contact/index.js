@@ -138,7 +138,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_a4ri96n', 'template_upsdhpu', form.current, 'mJ_naJFjtfMPRa1o9')
+    emailjs.sendForm('service_id', 'template_id', form.current, 'public key') // public key use panna satru beedhiyaga irrukiradhu
       .then((result) => {
         setOpen(true);
         form.current.reset();
