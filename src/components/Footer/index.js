@@ -10,9 +10,7 @@ const FooterContainer = styled.div`
   padding: 2rem 0;
   display: flex;
   justify-content: center;
-  //background: linear-gradient(100.26deg, rgba(0, 102, 255, 0.05) 42.33%, rgba(150, 0, 225, 0.05) 127.07%);
 `;
-
 
 const FooterWrapper = styled.footer`
   width: 100%;
@@ -49,7 +47,7 @@ const Nav = styled.nav`
 `;
 
 const NavLink = styled.a`
-color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.text_primary};
   text-decoration: none;
   font-size: 1.2rem;
   transition: color 0.2s ease-in-out;
@@ -90,20 +88,19 @@ function Footer() {
       <FooterWrapper>
         <Logo>Sibi Siddharth S</Logo>
         <Nav>
-          <NavLink href="#about">About</NavLink>
-          <NavLink href="#skills">Skills</NavLink>
-          <NavLink href="#experience">Experience</NavLink>
-          <NavLink href="#projects">Projects</NavLink>
-          <NavLink href="#education">Education</NavLink>
+          <NavLink href="#about" aria-label="About section">About</NavLink>
+          <NavLink href="#skills" aria-label="Skills section">Skills</NavLink>
+          <NavLink href="#experience" aria-label="Experience section">Experience</NavLink>
+          <NavLink href="#projects" aria-label="Projects section">Projects</NavLink>
+          <NavLink href="#education" aria-label="Education section">Education</NavLink>
         </Nav>
         <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.linkedin} target="display"><LinkedInIcon /></SocialMediaIcon>
-          <SocialMediaIcon href={Bio.insta} target="display"><InstagramIcon /></SocialMediaIcon>
+          <SocialMediaIcon href={Bio.linkedin} target="_blank" aria-label="LinkedIn profile"><LinkedInIcon /></SocialMediaIcon>
+          <SocialMediaIcon href={Bio.insta} target="_blank" aria-label="Instagram profile"><InstagramIcon /></SocialMediaIcon>
         </SocialMediaIcons>
         <Copyright>
           &copy; 2024 Sibi Siddharth S. All rights reserved.
         </Copyright>
-
       </FooterWrapper>
     </FooterContainer>
   );

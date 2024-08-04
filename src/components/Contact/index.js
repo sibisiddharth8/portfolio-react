@@ -105,10 +105,7 @@ const ContactButton = styled.input`
   width: 100%;
   text-decoration: none;
   text-align: center;
-  background: hsla(271, 100%, 50%, 1);
   background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-  background: -moz-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-  background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
   padding: 13px 16px;
   margin-top: 2px;
   border-radius: 12px;
@@ -130,20 +127,19 @@ const ContactButton = styled.input`
   }
 `;
 
-
 const Contact = () => {
-  // hooks
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState({ open: false, message: '', severity: 'success' });
   const form = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_id', 'template_id', form.current, 'public key') // public key use panna satru beedhiyaga irrukiradhu
+    emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, form.current, process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
       .then((result) => {
-        setOpen(true);
+        setOpen({ open: true, message: 'Email sent successfully!', severity: 'success' });
         form.current.reset();
       }, (error) => {
         console.log(error.text);
+        setOpen({ open: true, message: 'Failed to send email. Please try again.', severity: 'error' });
       });
   };
 
@@ -154,19 +150,43 @@ const Contact = () => {
         <Desc>Feel free to reach out to me for any questions or collaboration!</Desc>
         <ContactForm ref={form} onSubmit={handleSubmit}>
           <ContactTitle>Email Me 🚀</ContactTitle>
-          <ContactInput placeholder="Your Email" name="from_email" required />
-          <ContactInput placeholder="Your Name" name="from_name" required />
-          <ContactInput placeholder="Subject" name="subject" required />
-          <ContactInputMessage placeholder="Message" rows="4" name="message" required />
-          <ContactButton type="submit" value="Send" />
+          <ContactInput
+            placeholder="Your Email"
+            name="from_email"
+            type="email"
+            required
+            aria-label="Your Email"
+          />
+          <ContactInput
+            placeholder="Your Name"
+            name="from_name"
+            type="text"
+            required
+            aria-label="Your Name"
+          />
+          <ContactInput
+            placeholder="Subject"
+            name="subject"
+            type="text"
+            required
+            aria-label="Subject"
+          />
+          <ContactInputMessage
+            placeholder="Message"
+            rows="4"
+            name="message"
+            required
+            aria-label="Message"
+          />
+          <ContactButton type="submit" value="Send" aria-label="Send Email" />
         </ContactForm>
         <Snackbar
-          open={open}
+          open={open.open}
           autoHideDuration={6000}
-          onClose={() => setOpen(false)}
+          onClose={() => setOpen(prev => ({ ...prev, open: false }))}
         >
-          <Alert onClose={() => setOpen(false)} severity="success">
-            Email sent successfully!
+          <Alert onClose={() => setOpen(prev => ({ ...prev, open: false }))} severity={open.severity}>
+            {open.message}
           </Alert>
         </Snackbar>
       </Wrapper>
