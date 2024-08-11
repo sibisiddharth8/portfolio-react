@@ -22,7 +22,7 @@ export const Bio = {
     "Final-year B.Tech student in Artificial Intelligence and Data Science, with a flair for frontend magic, AI/ML wizardry, and Python prowess. Renowned for blending smart work with unwavering dedication, I'm ready to push the boundaries of innovation and make a mark in the tech world.",
   github: "https://github.com/sibisiddharth8",
   resume:
-    "https://drive.google.com/file/d/1QsUlKN2ce7pzFkLycwidih7JJD_oKdGm/view?usp=sharing",
+    "https://drive.google.com/file/d/1yTiBSKQwzJ8v1mWI7eV86AWOfT_2dfWx/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/sibisiddharths/",
   insta: "https://www.instagram.com/sibi_siddharth/",
 };
