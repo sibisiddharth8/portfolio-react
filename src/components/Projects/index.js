@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Container, Wrapper, Title, Desc, CardContainer, ToggleButtonGroup, ToggleButton, Divider } from './ProjectsStyle'
 import ProjectCard from '../Cards/ProjectCards'
-import { projects } from '../../data/constants'
+import data from '../../data/constants.json'
 
 
 const Projects = ({openModal,setOpenModal}) => {
@@ -40,11 +40,11 @@ const Projects = ({openModal,setOpenModal}) => {
           }
         </ToggleButtonGroup>
         <CardContainer>
-          {toggle === 'all' && projects
+          {toggle === 'all' && data.projects
             .map((project) => (
               <ProjectCard project={project} openModal={openModal} setOpenModal={setOpenModal}/>
             ))}
-          {projects
+          {data.projects
             .filter((item) => item.category == toggle)
             .map((project) => (
               <ProjectCard project={project} openModal={openModal} setOpenModal={setOpenModal}/>

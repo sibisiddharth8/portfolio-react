@@ -16,7 +16,7 @@ import {
     ResumeButton 
 } from './HeroStyle';
 import Typewriter from 'typewriter-effect';
-import { Bio } from '../../data/constants';
+import data from '../../data/constants.json';
 import my_profile_pic from "../../images/my_profile_pic.jpg";
 
 const HeroSection = () => {
@@ -28,22 +28,22 @@ const HeroSection = () => {
                 </HeroBg>
                 <HeroInnerContainer>
                     <HeroLeftContainer>
-                        <Title>Hi, I am <br /> {Bio.name}</Title>
+                        <Title>Hi, I am <br /> {data.Bio.name}</Title>
                         <TextLoop>
                             I am a
                             <Span>
                                 <Typewriter
                                     options={{
-                                        strings: Bio.roles,
+                                        strings: data.Bio.roles,
                                         autoStart: true,
                                         loop: true,
                                     }}
                                 />
                             </Span>
                         </TextLoop>
-                        <SubTitle>{Bio.description}</SubTitle>
+                        <SubTitle>{data.Bio.description}</SubTitle>
                         <ResumeButton 
-                            href={Bio.resume} 
+                            href={data.Bio.resume} 
                             target="_blank" 
                             rel="noopener noreferrer"
                             aria-label="View my resume"
@@ -53,7 +53,7 @@ const HeroSection = () => {
                     </HeroLeftContainer>
 
                     <HeroRightContainer>
-                        <Img src={my_profile_pic} alt={`Profile picture of ${Bio.name}`} />
+                        <Img src={my_profile_pic} alt={`Profile picture of ${data.Bio.name}`} />
                     </HeroRightContainer>
                 </HeroInnerContainer>
             </HeroContainer>

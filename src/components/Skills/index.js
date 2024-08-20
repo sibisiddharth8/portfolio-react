@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { skills } from '../../data/constants'
+import data from '../../data/constants.json'
 
 const Container = styled.div`
 display: flex;
@@ -127,7 +127,7 @@ const Skills = () => {
         <Desc>Here are some of my skills on which I have been working!
         </Desc>
         <SkillsContainer>
-          {skills.map((skill) => (
+          {data.skills.map((skill) => (
             <Skill>
               <SkillTitle>{skill.title}</SkillTitle>
               <SkillList>

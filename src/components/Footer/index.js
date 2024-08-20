@@ -3,7 +3,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import { Bio } from '../../data/constants';
+import data from '../../data/constants.json';
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -95,8 +95,8 @@ function Footer() {
           <NavLink href="#education" aria-label="Education section">Education</NavLink>
         </Nav>
         <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.linkedin} target="_blank" aria-label="LinkedIn profile"><LinkedInIcon /></SocialMediaIcon>
-          <SocialMediaIcon href={Bio.insta} target="_blank" aria-label="Instagram profile"><InstagramIcon /></SocialMediaIcon>
+          <SocialMediaIcon href={data.Bio.linkedin} target="_blank" aria-label="LinkedIn profile"><LinkedInIcon /></SocialMediaIcon>
+          <SocialMediaIcon href={data.Bio.insta} target="_blank" aria-label="Instagram profile"><InstagramIcon /></SocialMediaIcon>
         </SocialMediaIcons>
         <Copyright>
           &copy; 2024 Sibi Siddharth S. All rights reserved.
