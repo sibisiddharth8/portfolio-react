@@ -41,8 +41,7 @@
         "skills": [
             {
               "name": "Python",
-              "image":
-                "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+              "image":"https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
             },
             {
               "name": "Flask",
@@ -50,8 +49,7 @@
             },
             {
               "name": "MySQL",
-              "image":
-                "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
+              "image":"https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
             },
             {
               "name": "Postgresql",
