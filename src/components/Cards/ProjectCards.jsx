@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import data from '../../data/constants.json';
 
 const Button = styled.button`
     display: none;

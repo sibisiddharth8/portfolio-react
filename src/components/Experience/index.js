@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -7,7 +7,8 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import ExperienceCard from '../Cards/ExperienceCard';
-import data from '../../data/constants.json';
+import { ref, onValue } from "firebase/database"; 
+import { database } from "../../FirebaseConfig"; 
 
 const Container = styled.section`
   display: flex;
@@ -70,6 +71,18 @@ const TimelineSection = styled.div`
 `;
 
 const ExperienceTimeline = () => {
+  const [experiences, setExperiences] = useState([]);
+
+  useEffect(() => {
+    const dataRef = ref(database, 'experiences');
+    onValue(dataRef, (snapshot) => {
+      const fetchedData = snapshot.val();
+      if (fetchedData) {
+        setExperiences(Object.values(fetchedData));
+      }
+    });
+  }, []);
+
   return (
     <Container id="experience">
       <Wrapper>
@@ -79,11 +92,11 @@ const ExperienceTimeline = () => {
         </Desc>
         <TimelineSection>
           <Timeline>
-            {data.experiences.map((experience, index) => (
+            {experiences.map((experience, index) => (
               <TimelineItem key={experience.id}>
                 <TimelineSeparator>
                   <TimelineDot variant="outlined" color="secondary" />
-                  {index < data.experiences.length - 1 && (
+                  {index < experiences.length - 1 && (
                     <TimelineConnector style={{ background: '#854CE6' }} />
                   )}
                 </TimelineSeparator>

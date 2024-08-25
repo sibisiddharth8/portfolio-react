@@ -16,10 +16,9 @@ import {
     ResumeButton 
 } from './HeroStyle';
 import Typewriter from 'typewriter-effect';
-import data from '../../data/constants.json';
 import my_profile_pic from "../../images/my_profile_pic.jpg";
 
-const HeroSection = () => {
+const HeroSection = ({ heroData }) => {
     return (
         <section id="about">
             <HeroContainer>
@@ -28,22 +27,22 @@ const HeroSection = () => {
                 </HeroBg>
                 <HeroInnerContainer>
                     <HeroLeftContainer>
-                        <Title>Hi, I am <br /> {data.Bio.name}</Title>
+                        <Title>Hi, I am <br /> {heroData?.name}</Title>
                         <TextLoop>
                             I am a
                             <Span>
                                 <Typewriter
                                     options={{
-                                        strings: data.Bio.roles,
+                                        strings: heroData?.roles || [],
                                         autoStart: true,
                                         loop: true,
                                     }}
                                 />
                             </Span>
                         </TextLoop>
-                        <SubTitle>{data.Bio.description}</SubTitle>
+                        <SubTitle>{heroData?.description}</SubTitle>
                         <ResumeButton 
-                            href={data.Bio.resume} 
+                            href={heroData?.resume} 
                             target="_blank" 
                             rel="noopener noreferrer"
                             aria-label="View my resume"
@@ -53,7 +52,7 @@ const HeroSection = () => {
                     </HeroLeftContainer>
 
                     <HeroRightContainer>
-                        <Img src={my_profile_pic} alt={`Profile picture of ${data.Bio.name}`} />
+                        <Img src={my_profile_pic} alt={`Profile picture of ${heroData?.name}`} />
                     </HeroRightContainer>
                 </HeroInnerContainer>
             </HeroContainer>

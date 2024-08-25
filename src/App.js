@@ -1,21 +1,20 @@
 import { ThemeProvider } from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { darkTheme, lightTheme } from './utils/Themes.js';
 import Navbar from "./components/Navbar";
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import HeroSection from "./components/HeroSection";
-import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Experience from "./components/Experience";
-import Education from "./components/Education";
 import ProjectDetails from "./components/ProjectDetails";
+import EducationTimeline from "./components/Education/index.js";
 import styled from "styled-components";
-import { SpeedInsights } from "@vercel/speed-insights/react"
-import "./Firebase-config.js";
+import { ref, onValue } from "firebase/database";
+import { database } from "./FirebaseConfig";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -32,28 +31,37 @@ const Wrapper = styled.div`
 function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [openModal, setOpenModal] = useState({ state: false, project: null });
+  const [firebaseData, setFirebaseData] = useState(null);
 
-  // Determine the correct basename
+  // Fetch data from Firebase 
+  useEffect(() => {
+    const dataRef = ref(database, "/");
+    onValue(dataRef, (snapshot) => {
+      const fetchedData = snapshot.val();
+      setFirebaseData(fetchedData);
+    });
+  }, []);
+
   const basename = process.env.REACT_APP_ENV === "github" ? "/portfolio-react" : "/";
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <Router basename={basename}>
-        <Navbar />
+        <Navbar navbarData={firebaseData?.Bio || {}} />
         <Body>
-          <HeroSection />
+          <HeroSection heroData={firebaseData?.Bio || {}} />
           <Wrapper>
-            <Skills />
+            <Skills skillsData={firebaseData?.skills || []} />
             <Experience />
           </Wrapper>
-          <Projects openModal={openModal} setOpenModal={setOpenModal} />
+          <Projects projectsData={firebaseData?.projects || []} openModal={openModal} setOpenModal={setOpenModal}/>
           <Wrapper>
-            <Education />
+            <EducationTimeline education={firebaseData?.education || []} />
             <Contact />
           </Wrapper>
-          <Footer />
+          <Footer footerData={firebaseData?.Bio || {}} />
           {openModal.state && (
-            <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
+            <ProjectDetails projectsData={firebaseData?.projects || []} openModal={openModal} setOpenModal={setOpenModal} />
           )}
         </Body>
       </Router>
