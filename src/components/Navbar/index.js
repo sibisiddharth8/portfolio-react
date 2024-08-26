@@ -13,7 +13,7 @@ const Navbar = ({ navbarData }) => {
       <NavbarContainer>
         <NavLogo to='/'>
           <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: '20;', cursor: 'pointer' }}>
-           <Span>My Portfolio</Span>
+           <Span>MyMind</Span>
           </a>
         </NavLogo>
         <MobileIcon>
