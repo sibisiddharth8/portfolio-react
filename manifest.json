@@ -1,7 +1,7 @@
 {
   "name": "My Mind - Sibi's Portfolio",
   "short_name": "Sibi's Portfolio",
-  "start_url": "/",
+  "start_url": "/portfolio-react/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
