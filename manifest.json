@@ -13,6 +13,11 @@
     },
     {
       "src": "./MyLogo.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "./MyLogo.png",
       "sizes": "512x512",
       "type": "image/png"
     }
