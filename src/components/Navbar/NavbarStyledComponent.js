@@ -129,6 +129,7 @@ export const MobileMenu = styled.div`
     justify-content: center;
     gap: 16px;
     position: absolute;
+    text-align: center;
     top: 80px;
     right: 0;
     width: 100%;
