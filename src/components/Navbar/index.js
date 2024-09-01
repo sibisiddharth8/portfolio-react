@@ -11,7 +11,7 @@ const Navbar = ({ navbarData }) => {
   return (
     <Nav>
       <NavbarContainer>
-        <NavLogo to='/'>
+        <NavLogo to='/portfolio-react/'>
           <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: '20;', cursor: 'pointer' }}>
            <Span>MyMind</Span>
           </a>
