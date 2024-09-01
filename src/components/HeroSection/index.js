@@ -16,7 +16,6 @@ import {
     ResumeButton 
 } from './HeroStyle';
 import Typewriter from 'typewriter-effect';
-import my_profile_pic from "../../images/my_profile_pic.jpg";
 
 const HeroSection = ({ heroData }) => {
     return (
@@ -52,7 +51,7 @@ const HeroSection = ({ heroData }) => {
                     </HeroLeftContainer>
 
                     <HeroRightContainer>
-                        <Img src={my_profile_pic} alt={`Profile picture of ${heroData?.name}`} />
+                        <Img src={heroData?.profilepic}/>
                     </HeroRightContainer>
                 </HeroInnerContainer>
             </HeroContainer>

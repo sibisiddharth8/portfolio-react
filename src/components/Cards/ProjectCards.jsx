@@ -152,7 +152,6 @@ const ProjectCards = ({ project, setOpenModal }) => {
                     />
                 ))}
             </Members>
-            {/* <Button>View Project</Button> */}
         </Card>
     );
 };
