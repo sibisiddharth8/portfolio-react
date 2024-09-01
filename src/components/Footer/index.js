@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import GetAppIcon from '@mui/icons-material/GetApp';
+import { GitHub } from '@mui/icons-material';
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -75,6 +75,18 @@ const SocialMediaIcon = styled.a`
   }
 `;
 
+const InstallIconWrapper = styled.div`
+  display: inline-block;
+  margin: 0 1rem;
+  font-size: 1.5rem;
+  color: ${({ theme }) => theme.text_primary};
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  &:hover {
+    color: ${({ theme }) => theme.primary};
+  }
+`;
+
 const Copyright = styled.p`
   margin-top: 1.5rem;
   font-size: 0.9rem;
@@ -83,6 +95,29 @@ const Copyright = styled.p`
 `;
 
 const Footer = ({ footerData }) => {
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+
+  useEffect(() => {
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    });
+  }, []);
+
+  const handleInstallClick = () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        setDeferredPrompt(null);
+      });
+    }
+  };
+
   return (
     <FooterContainer>
       <FooterWrapper>
@@ -95,8 +130,14 @@ const Footer = ({ footerData }) => {
           <NavLink href="#education" aria-label="Education section">Education</NavLink>
         </Nav>
         <SocialMediaIcons>
+        <SocialMediaIcon href={footerData?.github} target="_blank" aria-label="github profile"><GitHub /></SocialMediaIcon>
           <SocialMediaIcon href={footerData?.linkedin} target="_blank" aria-label="LinkedIn profile"><LinkedInIcon /></SocialMediaIcon>
           <SocialMediaIcon href={footerData?.insta} target="_blank" aria-label="Instagram profile"><InstagramIcon /></SocialMediaIcon>
+          {deferredPrompt && (
+            <InstallIconWrapper onClick={handleInstallClick} aria-label="Install App">
+              <GetAppIcon />
+            </InstallIconWrapper>
+          )}
         </SocialMediaIcons>
         <Copyright>
           &copy; 2024 Sibi Siddharth S. All rights reserved.
