@@ -46,7 +46,7 @@ const HeroSection = ({ heroData }) => {
                             rel="noopener noreferrer"
                             aria-label="View my resume"
                         >
-                            Check Resume
+                            Check My CV
                         </ResumeButton>
                     </HeroLeftContainer>
 
