@@ -57,7 +57,6 @@ const Date = styled.div`
 const Desc = styled.div`
     font-size: 16px;
     font-weight: 400;
-    text-align: justify;
     color: ${({ theme }) => theme.text_primary};
     margin: 8px 6px;
     @media only screen and (max-width: 600px) {

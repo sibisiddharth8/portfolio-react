@@ -1,5 +1,6 @@
 import React from 'react';
 import HeroBgAnimation from '../HeroBgAnimation';
+import profile_pic from '../../images/profile_pic-1.jpg';
 import { 
     HeroContainer, 
     HeroBg, 
@@ -51,7 +52,7 @@ const HeroSection = ({ heroData }) => {
                     </HeroLeftContainer>
 
                     <HeroRightContainer>
-                        <Img src={heroData?.profilepic}/>
+                        <Img src={profile_pic}/>
                     </HeroRightContainer>
                 </HeroInnerContainer>
             </HeroContainer>
