@@ -45,7 +45,7 @@ const Projects = ({ projectsData, openModal, setOpenModal }) => {
         <CardContainer>
           {filteredProjects.map(project => (
             <ProjectCard
-              key={project.id} // Ensure each project has a unique id
+              key={project.id}
               project={project}
               openModal={openModal}
               setOpenModal={setOpenModal}

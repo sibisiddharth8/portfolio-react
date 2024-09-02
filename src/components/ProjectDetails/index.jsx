@@ -52,8 +52,6 @@ const Date = styled.div`
     }
 `
 
-
-
 const Desc = styled.div`
     font-size: 16px;
     font-weight: 400;
@@ -211,7 +209,7 @@ const index = ({ openModal, setOpenModal }) => {
                     <Desc>{project?.description}</Desc>
                     {project.member && (
                         <>
-                            <Label>Members</Label>
+                            <Label>Team</Label>
                             <Members>
                                 {project?.member.map((member) => (
                                     <Member key={member.name}>
