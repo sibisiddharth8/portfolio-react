@@ -122,7 +122,7 @@ const Footer = ({ footerData }) => {
           <NavLink href="#education" aria-label="Education section">Education</NavLink>
         </Nav>
         <SocialMediaIcons>
-        <SocialMediaIcon href={footerData?.github} target="_blank" aria-label="github profile"><GitHub /></SocialMediaIcon>
+          <SocialMediaIcon href={footerData?.github} target="_blank" aria-label="github profile"><GitHub /></SocialMediaIcon>
           <SocialMediaIcon href={footerData?.linkedin} target="_blank" aria-label="LinkedIn profile"><LinkedInIcon /></SocialMediaIcon>
           <SocialMediaIcon href={footerData?.insta} target="_blank" aria-label="Instagram profile"><InstagramIcon /></SocialMediaIcon>
           {deferredPrompt && (

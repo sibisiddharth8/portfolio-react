@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FaGithub } from "react-icons/fa";
+import { HiOutlineExternalLink } from "react-icons/hi";
 
 const Button = styled.button`
     display: none;
@@ -106,10 +108,32 @@ const Description = styled.p`
     text-overflow: ellipsis;
 `;
 
+const CardDataHolder = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+`;
+
 const Members = styled.div`
     display: flex;
     align-items: center;
     padding-left: 10px;
+`;
+
+const SocialMediaIcon = styled.a`
+  display: flex;
+  font-size: 1.3rem;
+  color: ${({ theme }) => theme.text_primary};
+  transition: color 0.2s ease-in-out;
+  &:hover {
+    color: ${({ theme }) => theme.primary};
+  }
+`;
+
+const CardIcons = styled.div`
+    display: flex;
+    gap: 1rem;
 `;
 
 const Avatar = styled.img`
@@ -123,6 +147,12 @@ const Avatar = styled.img`
 `;
 
 const ProjectCards = ({ project, setOpenModal }) => {
+    const handleCopyToClipboard = (e, url) => {
+        e.preventDefault();
+        navigator.clipboard.writeText(url);
+        alert('Link copied to clipboard!');
+    };
+
     return (
         <Card
             onClick={() => setOpenModal({ state: true, project })}
@@ -143,15 +173,38 @@ const ProjectCards = ({ project, setOpenModal }) => {
                 <Date dateTime={project.date}>{project.date}</Date>
                 <Description>{project.description}</Description>
             </Details>
-            <Members>
-                {project.member?.map((member, index) => (
-                    <Avatar
-                        key={index}
-                        src={member.img}
-                        alt={`Avatar of ${member.name}`}
-                    />
-                ))}
-            </Members>
+            <CardDataHolder>
+                <Members>
+                    {project.member?.map((member, index) => (
+                        <Avatar
+                            key={index}
+                            src={member.img}
+                            alt={`Avatar of ${member.name}`}
+                        />
+                    ))}
+                </Members>
+                <CardIcons>
+                    {project?.github && (
+                        <>
+                            <SocialMediaIcon
+                                href={project.github}
+                                target="_blank"
+                                aria-label="github profile"
+                            >
+                                <FaGithub />
+                            </SocialMediaIcon>
+
+                            <SocialMediaIcon
+                                href="#"
+                                onClick={(e) => handleCopyToClipboard(e, project.github)}
+                                aria-label="copy link to clipboard"
+                            >
+                                <HiOutlineExternalLink />
+                            </SocialMediaIcon>
+                        </>
+                    )}
+                </CardIcons>
+            </CardDataHolder>
         </Card>
     );
 };
