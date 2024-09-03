@@ -148,10 +148,12 @@ const Avatar = styled.img`
 
 const ProjectCards = ({ project, setOpenModal }) => {
     const handleCopyToClipboard = (e, url) => {
+        e.stopPropagation();  
         e.preventDefault();
         navigator.clipboard.writeText(url);
-    };
-
+        alert('Link copied to clipboard!');
+    }
+    
     return (
         <Card
             onClick={() => setOpenModal({ state: true, project })}
