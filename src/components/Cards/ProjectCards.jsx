@@ -150,7 +150,6 @@ const ProjectCards = ({ project, setOpenModal }) => {
     const handleCopyToClipboard = (e, url) => {
         e.preventDefault();
         navigator.clipboard.writeText(url);
-        alert('Link copied to clipboard!');
     };
 
     return (
