@@ -4,6 +4,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GetAppIcon from '@mui/icons-material/GetApp';
 import { GitHub } from '@mui/icons-material';
+import logo from '../../images/MyLogo.png';
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -21,6 +22,15 @@ const FooterWrapper = styled.footer`
   align-items: center;
   padding: 1rem;
   color: ${({ theme }) => theme.text_primary};
+`;
+
+const LogoImg = styled.img`
+  height: 5rem;
+  width: 4rem;
+  padding: 0.5rem;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Logo = styled.h1`
@@ -98,10 +108,16 @@ const Footer = ({ footerData }) => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
 
   useEffect(() => {
-    window.addEventListener('beforeinstallprompt', (e) => {
+    const handleBeforeInstallPrompt = (e) => {
       e.preventDefault();
       setDeferredPrompt(e);
-    });
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
   }, []);
 
   const handleInstallClick = () => {
@@ -113,6 +129,9 @@ const Footer = ({ footerData }) => {
   return (
     <FooterContainer>
       <FooterWrapper>
+        <a href="#">
+          <LogoImg src={logo} alt="Logo" />
+        </a>
         <Logo>Sibi Siddharth S</Logo>
         <Nav>
           <NavLink href="#about" aria-label="About section">About</NavLink>
@@ -122,9 +141,27 @@ const Footer = ({ footerData }) => {
           <NavLink href="#education" aria-label="Education section">Education</NavLink>
         </Nav>
         <SocialMediaIcons>
-          <SocialMediaIcon href={footerData?.github} target="_blank" aria-label="github profile"><GitHub /></SocialMediaIcon>
-          <SocialMediaIcon href={footerData?.linkedin} target="_blank" aria-label="LinkedIn profile"><LinkedInIcon /></SocialMediaIcon>
-          <SocialMediaIcon href={footerData?.insta} target="_blank" aria-label="Instagram profile"><InstagramIcon /></SocialMediaIcon>
+          <SocialMediaIcon
+            href={footerData?.github || '#'}
+            target="_blank"
+            aria-label="GitHub profile"
+          >
+            <GitHub />
+          </SocialMediaIcon>
+          <SocialMediaIcon
+            href={footerData?.linkedin || '#'}
+            target="_blank"
+            aria-label="LinkedIn profile"
+          >
+            <LinkedInIcon />
+          </SocialMediaIcon>
+          <SocialMediaIcon
+            href={footerData?.insta || '#'}
+            target="_blank"
+            aria-label="Instagram profile"
+          >
+            <InstagramIcon />
+          </SocialMediaIcon>
           {deferredPrompt && (
             <InstallIconWrapper onClick={handleInstallClick} aria-label="Install App">
               <GetAppIcon />
@@ -132,7 +169,7 @@ const Footer = ({ footerData }) => {
           )}
         </SocialMediaIcons>
         <Copyright>
-          &copy; 2024 Sibi Siddharth S. All rights reserved.
+          &copy; {new Date().getFullYear()} Sibi Siddharth S. All rights reserved.
         </Copyright>
       </FooterWrapper>
     </FooterContainer>
