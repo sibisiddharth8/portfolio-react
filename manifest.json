@@ -20,7 +20,7 @@
       "type": "image/png"
     },
     {
-      "src": "./MyLogo.png",
+      "src": "./logo-desktop.png",
       "sizes": "512x512",
       "type": "image/png"
     }
