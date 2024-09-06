@@ -1,19 +1,16 @@
-// src/App.js
 import React, { useState, useEffect, lazy, Suspense } from "react";
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route, HashRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from './utils/Themes.js';
 import './App.css';
 import styled from "styled-components";
 import { ref, onValue } from "firebase/database";
 import { database } from "./FirebaseConfig";
-import Spinner from './components/spinner/Spinner';  // Import Spinner
 
 // Lazy load pages
 const Home = lazy(() => import("./pages/Home"));
 const AllProjects = lazy(() => import("./pages/AllProjects.jsx"));
 
-// Styled components
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
   width: 100%;
@@ -64,11 +61,9 @@ const App = () => {
     });
   }, []);
 
-  const basename = "/portfolio-react";
-
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <Router basename={basename}>
+      <Router>
         <Suspense>
           <Body>
             <Routes>
@@ -79,7 +74,6 @@ const App = () => {
               <Route path="/AllProjects" element={
                 <AllProjects firebaseData={firebaseData} openModal={openModal} setOpenModal={setOpenModal} />
               } />
-
             </Routes>
           </Body>
         </Suspense>
