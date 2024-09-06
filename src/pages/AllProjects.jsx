@@ -1,4 +1,3 @@
-// src/pages/AllProjects.jsx
 import React, { lazy, Suspense } from 'react';
 
 const Projects = lazy(() => import("../components/Projects"));
@@ -9,13 +8,22 @@ function AllProjects({ firebaseData, openModal, setOpenModal }) {
   return (
     <div>
       <Suspense>
-        
-        <Projects projectsData={firebaseData.projects || []} openModal={openModal} setOpenModal={setOpenModal} />
+        <Projects 
+          projectsData={firebaseData.projects || []} 
+          openModal={openModal} 
+          setOpenModal={setOpenModal} 
+          defaultfilter="all"
+          projectFilters={['all', 'Web', 'Deep Learning', 'Machine Learning']}
+        />
 
         {openModal.state && (
-          <ProjectDetails projectsData={firebaseData.projects || []} openModal={openModal} setOpenModal={setOpenModal}/>
+          <ProjectDetails 
+            projectsData={firebaseData.projects || []} 
+            openModal={openModal} 
+            setOpenModal={setOpenModal} 
+          />
         )}
-        
+
         <Footer footerData={firebaseData.Bio || {}} links={["Projects"]} />
       </Suspense>
     </div>

@@ -7,6 +7,7 @@ import './App.css';
 import styled from "styled-components";
 import { ref, onValue } from "firebase/database";
 import { database } from "./FirebaseConfig";
+import Spinner from './components/spinner/Spinner';  // Import Spinner
 
 // Lazy load pages
 const Home = lazy(() => import("./pages/Home"));
@@ -72,7 +73,7 @@ const App = () => {
           <Body>
             <Routes>
               <Route path="/" element={
-                <Home firebaseData={firebaseData}openModal={openModal} setOpenModal={setOpenModal} />
+                <Home firebaseData={firebaseData} openModal={openModal} setOpenModal={setOpenModal} />
               } />
 
               <Route path="/AllProjects" element={

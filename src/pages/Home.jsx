@@ -27,11 +27,7 @@ const Home = ({ firebaseData, openModal, setOpenModal }) => {
         <Experience />
       </Wrapper>
 
-      <Projects 
-        projectsData={firebaseData.projects || []} 
-        openModal={openModal} 
-        setOpenModal={setOpenModal} 
-      />
+      <Projects projectsData={firebaseData.projects || []} openModal={openModal} setOpenModal={setOpenModal} defaultfilter="top projects"projectFilters={['top projects']} viewAllProjectsButton={1} />
 
       <Wrapper>
         <EducationTimeline education={firebaseData.education || []} />

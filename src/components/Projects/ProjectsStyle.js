@@ -102,3 +102,33 @@ export const CardContainer = styled.div`
     //     grid-template-columns: repeat(1, 1fr);
     // }
 `;
+
+export const ButtonContainer = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ViewAllProjects = styled.a`
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: ${({ theme }) => theme.text_primary};
+    padding: 12px 24px;
+    border-radius: 8px;
+    background-color: ${({ theme }) => theme.primary};
+    background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.5s ease;
+    &:hover {
+        transform: scale(1.05);
+    transition: all 0.4s ease-in-out;
+    box-shadow:  20px 20px 60px #1F2634,
+    filter: brightness(1);
+    }
+    @media only screen and (max-width: 600px) {
+        font-size: 14px;
+    }
+`;
