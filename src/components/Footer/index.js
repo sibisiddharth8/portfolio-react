@@ -104,7 +104,7 @@ const Copyright = styled.p`
   text-align: center;
 `;
 
-const Footer = ({ footerData }) => {
+const Footer = ({ footerData, links }) => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
 
   useEffect(() => {
@@ -134,11 +134,11 @@ const Footer = ({ footerData }) => {
         </a>
         <Logo>Sibi Siddharth S</Logo>
         <Nav>
-          <NavLink href="#about" aria-label="About section">About</NavLink>
-          <NavLink href="#skills" aria-label="Skills section">Skills</NavLink>
-          <NavLink href="#experience" aria-label="Experience section">Experience</NavLink>
-          <NavLink href="#projects" aria-label="Projects section">Projects</NavLink>
-          <NavLink href="#education" aria-label="Education section">Education</NavLink>
+          {links.map((link, index) => (
+            <NavLink href={`#${link.toLowerCase()}`} key={index} aria-label={`${link} section`}>
+              {link}
+            </NavLink>
+          ))}
         </Nav>
         <SocialMediaIcons>
           <SocialMediaIcon

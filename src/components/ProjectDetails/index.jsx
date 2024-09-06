@@ -4,31 +4,31 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-width: 100%;
-height: 100%;
-position: absolute;
-top: 0;
-left: 0;
-background-color: #000000a7;
-display: flex;
-align-items: top;
-justify-content: center;
-overflow-y: scroll;
-transition: all 0.5s ease;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000000a7;
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  overflow-y: scroll;
+  transition: all 0.5s ease;
 `;
 
 const Wrapper = styled.div`
-max-width: 800px;
-width: 100%;
-border-radius: 16px;
-margin: 50px 12px;
-height: min-content;
-background-color: ${({ theme }) => theme.card};
-color: ${({ theme }) => theme.text_primary};
-padding: 20px;
-display: flex;
-flex-direction: column;
-position: relative;
+  max-width: 800px;
+  width: 100%;
+  border-radius: 16px;
+  margin: 50px 12px;
+  height: min-content;
+  background-color: ${({ theme }) => theme.card};
+  color: ${({ theme }) => theme.text_primary};
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 `;
 
 const Title = styled.div`
@@ -185,58 +185,68 @@ const Button = styled.a`
 
 const index = ({ openModal, setOpenModal }) => {
     const project = openModal?.project;
+    
+    console.log("Modal Open:", openModal);
+    console.log("Project Data:", project);
+  
     return (
-        <Modal open={true} onClose={() => setOpenModal({ state: false, project: null })}>
-            <Container>
-                <Wrapper>
-                    <CloseRounded
-                        style={{
-                            position: "absolute",
-                            top: "10px",
-                            right: "20px",
-                            cursor: "pointer",
-                        }}
-                        onClick={() => setOpenModal({ state: false, project: null })}
-                    />
-                    <Image src={project?.image} />
-                    <Title>{project?.title}</Title>
-                    <Date>{project.date}</Date>
-                    <Tags>
-                        {project?.tags.map((tag) => (
-                            <Tag key={tag}>{tag}</Tag>
-                        ))}
-                    </Tags>
-                    <Desc>{project?.description}</Desc>
-                    {project.member && (
-                        <>
-                            <Label>Team</Label>
-                            <Members>
-                                {project?.member.map((member) => (
-                                    <Member key={member.name}>
-                                        <MemberImage src={member.img} />
-                                        <MemberName>{member.name}</MemberName>
-                                        <a href={member.github} target="_blank" style={{ textDecoration: 'none', color: 'inherit' }}>
-                                            <GitHub />
-                                        </a>
-                                        <a href={member.linkedin} target="_blank" style={{ textDecoration: 'none', color: 'inherit' }}>
-                                            <LinkedIn />
-                                        </a>
-                                    </Member>
-                                ))}
-                            </Members>
-                        </>
-                    )}
-                    <ButtonGroup>
-                        {project?.github && (
-                            <Button dull href={project?.github} target="_blank">View Code</Button>)}
-                        {project?.webapp && (
-                            <Button href={project.webapp} target="_blank">View Live App</Button>
-                        )}
-                    </ButtonGroup>
-                </Wrapper>
-            </Container>
-        </Modal>
+      <Modal open={openModal?.state || false} onClose={() => {
+        console.log("Modal Close Triggered");
+        setOpenModal({ state: false, project: null });
+      }}>
+        <Container>
+          <Wrapper>
+            <CloseRounded
+              style={{
+                position: "absolute",
+                top: "10px",
+                right: "20px",
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                console.log("Close Button Clicked");
+                setOpenModal({ state: false, project: null });
+              }}
+            />
+            <Image src={project?.image} />
+            <Title>{project?.title}</Title>
+            <Date>{project.date}</Date>
+            <Tags>
+              {project?.tags.map((tag) => (
+                <Tag key={tag}>{tag}</Tag>
+              ))}
+            </Tags>
+            <Desc>{project?.description}</Desc>
+            {project.member && (
+              <>
+                <Label>Team</Label>
+                <Members>
+                  {project?.member.map((member) => (
+                    <Member key={member.name}>
+                      <MemberImage src={member.img} />
+                      <MemberName>{member.name}</MemberName>
+                      <a href={member.github} target="_blank" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <GitHub />
+                      </a>
+                      <a href={member.linkedin} target="_blank" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <LinkedIn />
+                      </a>
+                    </Member>
+                  ))}
+                </Members>
+              </>
+            )}
+            <ButtonGroup>
+              {project?.github && (
+                <Button dull href={project?.github} target="_blank">View Code</Button>)}
+              {project?.webapp && (
+                <Button href={project.webapp} target="_blank">View Live App</Button>
+              )}
+            </ButtonGroup>
+          </Wrapper>
+        </Container>
+      </Modal>
     )
-}
-
-export default index
+  }
+  
+  export default index;
