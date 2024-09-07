@@ -1,15 +1,31 @@
-// src/components/spinner/Spinner.jsx
 import React from 'react';
+import styled, { keyframes } from "styled-components";
 
-function Spinner() {
-  return (
-    <div>
-      <div
-        className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-primary motion-reduce:animate-[spin_1.5s_linear_infinite]"
-        role="status">
-      </div>
-    </div>
-  );
-}
+const spin = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
+
+const SpinnerWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
+const SpinnerIcon = styled.div`
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: ${spin} 1s linear infinite;
+`;
+
+const Spinner = () => (
+  <SpinnerWrapper>
+    <SpinnerIcon />
+  </SpinnerWrapper>
+);
 
 export default Spinner;

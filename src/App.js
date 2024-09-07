@@ -7,9 +7,9 @@ import styled from "styled-components";
 import { ref, onValue } from "firebase/database";
 import { database } from "./FirebaseConfig";
 
-// Lazy load pages
-const Home = lazy(() => import("./pages/Home"));
-const AllProjects = lazy(() => import("./pages/AllProjects.jsx"));
+// Pages
+import Home from "./pages/Home";
+import AllProjects from "./pages/AllProjects.jsx";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
