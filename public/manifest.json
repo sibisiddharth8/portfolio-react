@@ -15,19 +15,19 @@
       "type": "image/png"
     },
     {
-      "src": "Icons/MyLogo-256x256.png",
+      "src": "Icons/MyLogo-512x512.svg",
       "sizes": "256x256",
-      "type": "image/png"
+      "type": "image/svg"
     },
     {
-      "src": "Icons/MyLogo-384x384.png",
+      "src": "Icons/MyLogo-512x512.svg",
       "sizes": "384x384",
-      "type": "image/png"
+      "type": "image/svg"
     },
     {
-      "src": "Icons/MyLogo-512x512.png",
+      "src": "Icons/MyLogo-512x512.svg",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/svg"
     }
   ]
 }
