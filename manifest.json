@@ -10,7 +10,7 @@
   "description": "MyMind - Sibi Siddharth S's Portfolio - Showcasing B.Tech projects, expertise in Artificial Intelligence and Data Science, and skills in web development, machine learning, and deep learning.",
   "icons": [
     {
-      "src": "Icons/MyLogo-192x192.svg",
+      "src": "Icons/MyLogo-256x256.svg",
       "sizes": "192x192",
       "type": "image/png"
     },
