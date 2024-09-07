@@ -1,0 +1,7 @@
+User-agent: *
+
+# Allow full site access (optional)
+Allow: /
+
+# Sitemap location
+Sitemap: https://sibisiddharth8.github.io/portfolio-react/sitemap.xml
