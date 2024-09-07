@@ -27,8 +27,7 @@ export const NavbarContainer = styled.div`
   max-width: 1200px;
 `;
 
-export const NavLogo = styled(LinkR)`
-    width: 80%;    
+export const NavLogo = styled(LinkR)`    
     padding: 0 6px;
     display: flex;
     justify-content: start;
@@ -77,6 +76,7 @@ export const GitHubButton = styled.a`
   border: 1.8px solid ${({ theme }) => theme.primary};
   justify-content: center;
   display: flex;
+  white-space: nowrap;
   align-items: center;
   height: 70%;
   border-radius: 20px;
@@ -97,7 +97,7 @@ export const GitHubButton = styled.a`
 `;
 
 export const ButtonContainer = styled.div`
-  width: 80%;  
+
   height: 100%;
   display: flex;
   justify-content: end;

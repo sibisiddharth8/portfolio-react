@@ -11,7 +11,7 @@ const Navbar = ({ navbarData, sections }) => {
     <Nav>
       <NavbarContainer>
         <NavLogo to='/'>
-          <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: '20;', cursor: 'pointer' }}>
+          <a style={{ display: "flex", alignItems: "center", color: "white", cursor: 'pointer' }}>
             <Span>MyMind</Span>
           </a>
         </NavLogo>
@@ -21,7 +21,6 @@ const Navbar = ({ navbarData, sections }) => {
           }} />
         </MobileIcon>
         <NavItems>
-          {/* Dynamically rendering the nav links */}
           {sections.map(section => (
             <NavLink key={section} href={`#${section.toLowerCase()}`}>
               {section}
@@ -34,7 +33,6 @@ const Navbar = ({ navbarData, sections }) => {
         {
           isOpen &&
           <MobileMenu isOpen={isOpen}>
-            {/* Dynamically rendering the mobile nav links */}
             {sections.map(section => (
               <MobileLink key={section} href={`#${section.toLowerCase()}`} onClick={() => setIsOpen(!isOpen)}>
                 {section}
