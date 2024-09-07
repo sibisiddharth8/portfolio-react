@@ -1,29 +1,31 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 
-import Projects from "../components/Projects";
-import ProjectDetails from "../components/ProjectDetails";
-import Footer from '../components/Footer';
+const Projects = lazy(() => import('../components/Projects'));
+const ProjectDetails = lazy(() => import('../components/ProjectDetails'));
+const Footer = lazy(() => import('../components/Footer'));
 
 function AllProjects({ firebaseData, openModal, setOpenModal }) {
   return (
     <div>
-      <Projects 
-        projectsData={firebaseData.projects || []} 
-        openModal={openModal} 
-        setOpenModal={setOpenModal} 
-        defaultfilter="all"
-        projectFilters={['all', 'Web', 'Deep Learning', 'Machine Learning']}
-      />
-
-      {openModal.state && (
-        <ProjectDetails 
+      <Suspense>
+        <Projects 
           projectsData={firebaseData.projects || []} 
           openModal={openModal} 
           setOpenModal={setOpenModal} 
+          defaultfilter="all"
+          projectFilters={['all', 'Web', 'Deep Learning', 'Machine Learning']}
         />
-      )}
 
-      <Footer footerData={firebaseData.Bio || {}} links={["Projects"]} />
+        {openModal.state && (
+          <ProjectDetails 
+            projectsData={firebaseData.projects || []} 
+            openModal={openModal} 
+            setOpenModal={setOpenModal} 
+          />
+        )}
+
+        <Footer footerData={firebaseData.Bio || {}} links={["Projects"]} />
+      </Suspense>
     </div>
   );
 }

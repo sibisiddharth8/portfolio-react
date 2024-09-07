@@ -185,13 +185,9 @@ const Button = styled.a`
 
 const index = ({ openModal, setOpenModal }) => {
     const project = openModal?.project;
-    
-    console.log("Modal Open:", openModal);
-    console.log("Project Data:", project);
   
     return (
       <Modal open={openModal?.state || false} onClose={() => {
-        console.log("Modal Close Triggered");
         setOpenModal({ state: false, project: null });
       }}>
         <Container>
@@ -204,7 +200,6 @@ const index = ({ openModal, setOpenModal }) => {
                 cursor: "pointer",
               }}
               onClick={() => {
-                console.log("Close Button Clicked");
                 setOpenModal({ state: false, project: null });
               }}
             />
