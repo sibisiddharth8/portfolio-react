@@ -20,21 +20,42 @@ const Wrapper = styled.div`
 const Home = ({ firebaseData, openModal, setOpenModal }) => {
   return (
     <>
-      <Navbar navbarData={firebaseData.Bio || {}} sections={['About', 'Skills', 'Experience', 'Projects', 'Education']} />
-      <HeroSection heroData={firebaseData.Bio || {}} />
+      <Navbar 
+        navbarData={firebaseData.Bio || {}} 
+        sections={['About', 'Skills', 'Experience', 'Projects', 'Education']} 
+      />
+
+      <HeroSection 
+        heroData={firebaseData.Bio || {}} 
+      />
+
       <Wrapper>
-        <Skills skillsData={firebaseData.skills || []} />
+        <Skills 
+          skillsData={firebaseData.skills || []} 
+        />
         <Experience />
       </Wrapper>
 
-      <Projects projectsData={firebaseData.projects || []} openModal={openModal} setOpenModal={setOpenModal} defaultfilter="top projects"projectFilters={['top projects']} viewAllProjectsButton={1} />
+      <Projects 
+        projectsData={firebaseData.projects || []} 
+        openModal={openModal} 
+        setOpenModal={setOpenModal} 
+        defaultfilter="all"
+        projectFilters={['all', 'Web', 'Deep Learning', 'Machine Learning']} 
+        viewAllProjectsButton={null} 
+      />
 
       <Wrapper>
-        <EducationTimeline education={firebaseData.education || []} />
+        <EducationTimeline 
+          education={firebaseData.education || []} 
+        />
         <Contact />
       </Wrapper>
       
-      <Footer footerData={firebaseData.Bio || {}} links={["About", "Skills", "Experience", "Projects", "Education"]} />
+      <Footer 
+        footerData={firebaseData.Bio || {}} 
+        links={["About", "Skills", "Experience", "Projects", "Education"]} 
+      />
 
       {openModal.state && (
         <ProjectDetails 
