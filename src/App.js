@@ -1,5 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
-import { Routes, Route, HashRouter as Router } from 'react-router-dom';
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from './utils/Themes.js';
 import './App.css';
@@ -61,9 +61,12 @@ const App = () => {
     });
   }, []);
 
+
+  const basename = "/portfolio-react";
+
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <Router>
+      <Router basename={basename}>
         <Suspense>
           <Body>
             <Routes>
