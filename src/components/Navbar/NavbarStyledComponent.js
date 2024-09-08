@@ -12,7 +12,7 @@ export const Nav = styled.div`
   position: sticky;
   top: 0;
   z-index: 10;
-  transition: top 0.4s ease-in-out; 
+  transition: top 0.3s ease-in-out; 
   
   &.hidden {
     top: -80px; 
