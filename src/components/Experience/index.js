@@ -9,18 +9,16 @@ import TimelineDot from '@mui/lab/TimelineDot';
 import ExperienceCard from '../Cards/ExperienceCard';
 import { ref, onValue } from "firebase/database"; 
 import { database } from "../../FirebaseConfig"; 
+import { Padding } from '@mui/icons-material';
 
 const Container = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px 0 80px;
+  padding: 0 0 60px;
   position: relative;
   z-index: 1;
-  @media (max-width: 960px) {
-    padding: 20px 0;
-  }
 `;
 
 const Wrapper = styled.div`
@@ -30,10 +28,10 @@ const Wrapper = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1350px;
-  padding: 80px 0;
+  padding: 40px 0 0;
   gap: 12px;
   @media (max-width: 960px) {
-    padding: 40px 0;
+    flex-direction: column;
   }
 `;
 
@@ -68,6 +66,9 @@ const TimelineSection = styled.div`
   align-items: center;
   justify-content: center;
   gap: 12px;
+  @media (max-width: 400px) {
+    align-items: flex-end;
+  }
 `;
 
 const ExperienceTimeline = () => {
@@ -91,21 +92,19 @@ const ExperienceTimeline = () => {
           My work experience as a Developer and other roles on different clubs and team projects.
         </Desc>
         <TimelineSection>
-          <Timeline>
             {experiences.map((experience, index) => (
-              <TimelineItem key={experience.id}>
+              <TimelineItem key={experience.id} >
                 <TimelineSeparator>
                   <TimelineDot variant="outlined" color="secondary" />
                   {index < experiences.length - 1 && (
                     <TimelineConnector style={{ background: '#854CE6' }} />
                   )}
                 </TimelineSeparator>
-                <TimelineContent sx={{ py: '12px', px: 2 }}>
+                <TimelineContent>
                   <ExperienceCard experience={experience} />
                 </TimelineContent>
               </TimelineItem>
             ))}
-          </Timeline>
         </TimelineSection>
       </Wrapper>
     </Container>

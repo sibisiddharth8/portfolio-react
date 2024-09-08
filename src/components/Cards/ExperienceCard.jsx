@@ -51,8 +51,12 @@ const Card = styled.article`
     }
     @media only screen and (max-width: 768px) {
         padding: 10px;
-        gap: 8px;
+        gap: 12px;
         width: 300px;
+    }
+    @media only screen and (max-width: 575px) {
+        width: 290px;
+        padding: 12px 8px;
     }
     &:hover ${Document} {
         display: block;
@@ -169,7 +173,7 @@ const ExperienceCard = ({ experience }) => {
                     </>
                 )}
             </Description>
-            {experience.doc && (
+            {/* {experience.doc && (
                 <a 
                     href={experience.doc} 
                     target="_blank" 
@@ -181,7 +185,7 @@ const ExperienceCard = ({ experience }) => {
                         alt={`Document for ${experience.role} at ${experience.company}`}
                     />
                 </a>
-            )}
+            )} */}
         </Card>
     );
 };
