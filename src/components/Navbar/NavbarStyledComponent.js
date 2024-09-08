@@ -3,19 +3,26 @@ import styled from 'styled-components';
 import _default from '../../themes/default';
 
 export const Nav = styled.div`
-    background-color: ${({theme}) => theme.card_light};
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    @media (max-width: 960px) {
-        transition: 0.8s all ease;
-    }
+  background-color: ${({theme}) => theme.card_light};
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  transition: top 0.4s ease-in-out; 
+  
+  &.hidden {
+    top: -80px; 
+  }
+  
+  @media (max-width: 960px) {
+    transition: 0.8s all ease;
+  }
 `;
+
 export const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;

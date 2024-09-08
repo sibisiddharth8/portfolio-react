@@ -14,7 +14,6 @@ import AllProjects from "./pages/AllProjects.jsx";
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
   width: 100%;
-  overflow-x: visible;
 `;
 
 const App = () => {
