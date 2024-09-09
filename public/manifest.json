@@ -10,24 +10,24 @@
   "description": "MyMind - Sibi Siddharth S Portfolio, showcasing Web, Machine Learning, Deep Learning and Python projects.",
   "icons": [
     {
-      "src": "Icons/MyLogo.png",
+      "src": "Icons/MyLogo-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "Icons/MyLogo-512x512.svg",
+      "src": "Icons/MyLogo-256x256.png",
       "sizes": "256x256",
-      "type": "image/svg"
+      "type": "image/png"
     },
     {
-      "src": "Icons/MyLogo-512x512.svg",
+      "src": "Icons/MyLogo-384x384.png",
       "sizes": "384x384",
-      "type": "image/svg"
+      "type": "image/png"
     },
     {
-      "src": "Icons/MyLogo-512x512.svg",
+      "src": "Icons/MyLogo-512x512.png",
       "sizes": "512x512",
-      "type": "image/svg"
+      "type": "image/png"
     }
   ]
 }
