@@ -3,6 +3,7 @@
   "short_name": "Sibi's Portfolio",
   "start_url": "/portfolio-react/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#ffffff",
   "theme_color": "#000000",
   "id": "Sibi-Siddharth-S",
