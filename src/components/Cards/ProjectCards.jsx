@@ -118,7 +118,6 @@ const CardDataHolder = styled.div`
 const Members = styled.div`
     display: flex;
     align-items: center;
-    padding-left: 10px;
 `;
 
 const SocialMediaIcon = styled.a`
