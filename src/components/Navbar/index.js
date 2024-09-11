@@ -10,15 +10,20 @@ const Navbar = ({ navbarData, sections }) => {
   const prevScrollPos = useRef(window.pageYOffset);
   const theme = useTheme();
   const navbarRef = useRef(null);
+  const scrollThreshold = 25; // Define your threshold here
 
   useEffect(() => {
     const handleScroll = throttle(() => {
       const currentScrollPos = window.pageYOffset;
-      if (prevScrollPos.current > currentScrollPos) {
-        setScrollDirection('up');
-      } else {
+      const isScrollingDown = prevScrollPos.current < currentScrollPos;
+      const isBeyondThreshold = Math.abs(currentScrollPos - prevScrollPos.current) > scrollThreshold;
+
+      if (isScrollingDown && isBeyondThreshold) {
         setScrollDirection('down');
+      } else if (!isScrollingDown && isBeyondThreshold) {
+        setScrollDirection('up');
       }
+
       prevScrollPos.current = currentScrollPos;
 
       if (isOpen) {
