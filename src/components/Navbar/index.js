@@ -7,8 +7,9 @@ import { throttle } from 'lodash';
 const Navbar = ({ navbarData, sections }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollDirection, setScrollDirection] = useState('up');
-  const prevScrollPos = useRef(window.pageYOffset); 
+  const prevScrollPos = useRef(window.pageYOffset);
   const theme = useTheme();
+  const navbarRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = throttle(() => {
@@ -19,11 +20,15 @@ const Navbar = ({ navbarData, sections }) => {
         setScrollDirection('down');
       }
       prevScrollPos.current = currentScrollPos;
+
+      if (isOpen) {
+        setIsOpen(false);
+      }
     }, 100);
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isOpen]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,8 +41,19 @@ const Navbar = ({ navbarData, sections }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   return (
-    <Nav className={scrollDirection === 'down' ? 'hidden' : ''}>
+    <Nav className={scrollDirection === 'down' ? 'hidden' : ''} ref={navbarRef}>
       <NavbarContainer>
         <NavLogo to='/'>
           <a style={{ display: "flex", alignItems: "center", color: "white", cursor: 'pointer' }}>
@@ -61,7 +77,7 @@ const Navbar = ({ navbarData, sections }) => {
           isOpen &&
           <MobileMenu isOpen={isOpen}>
             {sections.map(section => (
-              <MobileLink key={section} href={`#${section.toLowerCase()}`} onClick={() => setIsOpen(!isOpen)}>
+              <MobileLink key={section} href={`#${section.toLowerCase()}`} onClick={() => setIsOpen(false)}>
                 {section}
               </MobileLink>
             ))}
