@@ -46,7 +46,7 @@ const ImageWrapper = styled.div`
     align-items: center;
     width: 100%;
     height: 180px;
-    background-color: ${({ theme }) => theme.white};
+    background-color: ${({ theme }) => theme.bgLight};
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
@@ -204,7 +204,7 @@ const ProjectCards = ({ project, setOpenModal }) => {
                         <Avatar
                             key={index}
                             src={member.img}
-                            alt={`Avatar of ${member.name}`}
+                            alt={`Profile of ${member.name}`}
                         />
                     ))}
                 </Members>

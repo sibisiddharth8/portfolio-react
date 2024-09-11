@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%);
 `;
 
-// Lazy load the Projects component
+// Lazy load the components
 const Projects = lazy(() => import('../components/Projects'));
 
 const Home = ({ firebaseData, openModal, setOpenModal }) => {
@@ -38,7 +38,7 @@ const Home = ({ firebaseData, openModal, setOpenModal }) => {
         <Experience />
       </Wrapper>
 
-      <Suspense fallback={<div>Loading Projects...</div>}>
+      <Suspense>
         <Projects 
           projectsData={firebaseData.projects || []} 
           openModal={openModal} 
