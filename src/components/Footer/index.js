@@ -130,7 +130,7 @@ const Footer = ({ footerData, links }) => {
     <FooterContainer>
       <FooterWrapper>
         <a href="#">
-          <LogoImg src={logo} alt="Logo" />
+          <LogoImg src={logo} alt="Sibi Siddharth S Logo MyMind" />
         </a>
         <Logo>Sibi Siddharth S</Logo>
         <Nav>

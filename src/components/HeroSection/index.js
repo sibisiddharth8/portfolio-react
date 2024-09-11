@@ -52,7 +52,7 @@ const HeroSection = ({ heroData }) => {
                     </HeroLeftContainer>
 
                     <HeroRightContainer>
-                        <Img src={profile_pic}/>
+                        <Img src={profile_pic} alt={`Sibi Siddharth S - Profile`}/>
                     </HeroRightContainer>
                 </HeroInnerContainer>
             </HeroContainer>

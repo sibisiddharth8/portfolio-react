@@ -203,7 +203,7 @@ const index = ({ openModal, setOpenModal }) => {
                 setOpenModal({ state: false, project: null });
               }}
             />
-            <Image src={project?.image} />
+            <Image src={project?.image} alt={`Image for project titled ${project.title} - by Sibi Siddharth S`}/>
             <Title>{project?.title}</Title>
             <Date>{project.date}</Date>
             <Tags>
@@ -218,7 +218,7 @@ const index = ({ openModal, setOpenModal }) => {
                 <Members>
                   {project?.member.map((member) => (
                     <Member key={member.name}>
-                      <MemberImage src={member.img} />
+                      <MemberImage src={member.img} alt={`Profile of ${member.name}`} />
                       <MemberName>{member.name}</MemberName>
                       <a href={member.github} target="_blank" style={{ textDecoration: 'none', color: 'inherit' }}>
                         <GitHub />
@@ -235,7 +235,7 @@ const index = ({ openModal, setOpenModal }) => {
               {project?.github && (
                 <Button dull href={project?.github} target="_blank">View Code</Button>)}
               {project?.webapp && (
-                <Button href={project.webapp} target="_blank">View Live App</Button>
+                <Button href={project.webapp} target="_blank">View Live</Button>
               )}
             </ButtonGroup>
           </Wrapper>

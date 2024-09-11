@@ -149,7 +149,7 @@ const ExperienceCard = ({ experience }) => {
             <Top>
                 <Image 
                     src={experience.img} 
-                    alt={`Logo or image for ${experience.role} role at ${experience.company}`} 
+                    alt={`Logo for ${experience.role} role at ${experience.company} - Sibi Siddharth S`} 
                 />
                 <Body>
                     <Role>{experience.role}</Role>
