@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import Skills from '../components/Skills';
-import Projects from '../components/Projects';
 import Experience from '../components/Experience';
 import EducationTimeline from '../components/Education';
 import Contact from '../components/Contact';
@@ -16,6 +15,9 @@ const Wrapper = styled.div`
   width: 100%;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%);
 `;
+
+// Lazy load the Projects component
+const Projects = lazy(() => import('../components/Projects'));
 
 const Home = ({ firebaseData, openModal, setOpenModal }) => {
   return (
@@ -36,14 +38,16 @@ const Home = ({ firebaseData, openModal, setOpenModal }) => {
         <Experience />
       </Wrapper>
 
-      <Projects 
-        projectsData={firebaseData.projects || []} 
-        openModal={openModal} 
-        setOpenModal={setOpenModal} 
-        defaultfilter="all"
-        projectFilters={['all', 'Web', 'Deep Learning', 'Machine Learning']} 
-        viewAllProjectsButton={null} 
-      />
+      <Suspense fallback={<div>Loading Projects...</div>}>
+        <Projects 
+          projectsData={firebaseData.projects || []} 
+          openModal={openModal} 
+          setOpenModal={setOpenModal} 
+          defaultfilter="all"
+          projectFilters={['all', 'Web', 'Deep Learning', 'Machine Learning']} 
+          viewAllProjectsButton={null} 
+        />
+      </Suspense>
 
       <Wrapper>
         <EducationTimeline 

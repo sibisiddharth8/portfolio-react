@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaGithub } from "react-icons/fa";
-import { HiOutlineExternalLink } from "react-icons/hi";
 
 const Button = styled.button`
     display: none;
@@ -40,12 +39,37 @@ const Card = styled.article`
     }
 `;
 
-const Image = styled.img`
+const ImageWrapper = styled.div`
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 180px;
     background-color: ${({ theme }) => theme.white};
     border-radius: 10px;
+    overflow: hidden;
     box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
+`;
+
+const Image = styled.img`
+    width: 100%;
+    height: 100%;
+    display: ${({ isLoading }) => (isLoading ? 'none' : 'block')};
+`;
+
+const Loader = styled.div`
+    width: 40px;
+    height: 40px;
+    border: 4px solid ${({ theme }) => theme.text_secondary};
+    border-radius: 50%;
+    border-top: 4px solid ${({ theme }) => theme.primary};
+    animation: spin 1s linear infinite;
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
 `;
 
 const Tags = styled.div`
@@ -146,23 +170,24 @@ const Avatar = styled.img`
 `;
 
 const ProjectCards = ({ project, setOpenModal }) => {
-    const handleCopyToClipboard = (e, url) => {
-        e.stopPropagation();  
-        e.preventDefault();
-        navigator.clipboard.writeText(url);
-        alert('Link copied to clipboard!');
-    }
-    
+    const [isLoading, setIsLoading] = useState(true);
+
     return (
         <Card
             onClick={() => setOpenModal({ state: true, project })}
             aria-labelledby={`project-title-${project.id}`}
             role="button"
         >
-            <Image
-                src={project.image}
-                alt={`Image for project titled ${project.title}`}
-            />
+            <ImageWrapper>
+                <Image
+                    src={project.image}
+                    alt={`Image for project titled ${project.title}`}
+                    onLoad={() => setIsLoading(false)}
+                    onError={() => setIsLoading(false)}
+                    isLoading={isLoading}
+                />
+                {isLoading && <Loader />}
+            </ImageWrapper>
             <Tags>
                 {project.tags?.map((tag, index) => (
                     <Tag key={index}>{tag}</Tag>
@@ -185,23 +210,13 @@ const ProjectCards = ({ project, setOpenModal }) => {
                 </Members>
                 <CardIcons>
                     {project?.github && (
-                        <>
-                            <SocialMediaIcon
-                                href={project.github}
-                                target="_blank"
-                                aria-label="github profile"
-                            >
-                                <FaGithub />
-                            </SocialMediaIcon>
-
-                            <SocialMediaIcon
-                                href="#"
-                                onClick={(e) => handleCopyToClipboard(e, project.github)}
-                                aria-label="copy link to clipboard"
-                            >
-                                <HiOutlineExternalLink />
-                            </SocialMediaIcon>
-                        </>
+                        <SocialMediaIcon
+                            href={project.github}
+                            target="_blank"
+                            aria-label="github profile"
+                        >
+                            <FaGithub size={24} />
+                        </SocialMediaIcon>
                     )}
                 </CardIcons>
             </CardDataHolder>
