@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Nav, NavLink, NavbarContainer, Span, NavLogo, NavItems, GitHubButton, ButtonContainer, MobileIcon, MobileMenu, MobileLink } from './NavbarStyledComponent';
 import { FaBars } from 'react-icons/fa';
 import { useTheme } from 'styled-components';
-import { throttle } from 'lodash'; 
+import { throttle } from 'lodash';
 
 const Navbar = ({ navbarData, sections }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,16 +14,27 @@ const Navbar = ({ navbarData, sections }) => {
     const handleScroll = throttle(() => {
       const currentScrollPos = window.pageYOffset;
       if (prevScrollPos.current > currentScrollPos) {
-        setScrollDirection('up'); 
+        setScrollDirection('up');
       } else {
-        setScrollDirection('down'); 
+        setScrollDirection('down');
       }
-      prevScrollPos.current = currentScrollPos; 
-    }, 100); 
+      prevScrollPos.current = currentScrollPos;
+    }, 100);
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []); 
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <Nav className={scrollDirection === 'down' ? 'hidden' : ''}>
@@ -61,7 +72,7 @@ const Navbar = ({ navbarData, sections }) => {
         }
       </NavbarContainer>
     </Nav>
-  )
+  );
 }
 
 export default Navbar;
