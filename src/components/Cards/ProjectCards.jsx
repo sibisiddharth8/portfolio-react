@@ -177,6 +177,7 @@ const ProjectCards = ({ project, setOpenModal }) => {
             onClick={() => setOpenModal({ state: true, project })}
             aria-labelledby={`project-title-${project.id}`}
             role="button"
+            tabIndex="0"
         >
             <ImageWrapper>
                 <Image
@@ -213,7 +214,7 @@ const ProjectCards = ({ project, setOpenModal }) => {
                         <SocialMediaIcon
                             href={project.github}
                             target="_blank"
-                            aria-label="github profile"
+                            aria-label={`GitHub repository for ${project.title}`}
                         >
                             <FaGithub size={24} />
                         </SocialMediaIcon>

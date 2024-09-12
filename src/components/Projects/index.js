@@ -63,6 +63,7 @@ const Projects = ({ projectsData, openModal, setOpenModal, projectFilters, defau
           {projectFilters.map(category => (
             <React.Fragment key={category}>
               <ToggleButton
+                aria-label={`Filter projects by ${category}`}
                 active={toggle === category}
                 value={category}
                 onClick={() => setToggle(category)}
@@ -86,7 +87,7 @@ const Projects = ({ projectsData, openModal, setOpenModal, projectFilters, defau
 
         {viewAllProjectsButton && (
           <ButtonContainer>
-            <StyledLink to="/AllProjects">View All Projects</StyledLink>
+            <StyledLink to="/AllProjects" aria-label="View all my projects">View All Projects</StyledLink>
           </ButtonContainer>
         )}
       </Wrapper>

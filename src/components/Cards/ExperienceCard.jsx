@@ -173,19 +173,6 @@ const ExperienceCard = ({ experience }) => {
                     </>
                 )}
             </Description>
-            {/* {experience.doc && (
-                <a 
-                    href={experience.doc} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    aria-label={`Download document for ${experience.role} at ${experience.company}`}
-                >
-                    <Document 
-                        src={experience.doc} 
-                        alt={`Document for ${experience.role} at ${experience.company}`}
-                    />
-                </a>
-            )} */}
         </Card>
     );
 };

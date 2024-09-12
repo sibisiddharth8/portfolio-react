@@ -93,7 +93,7 @@ const ExperienceTimeline = () => {
         </Desc>
         <TimelineSection>
             {experiences.map((experience, index) => (
-              <TimelineItem key={experience.id} >
+              <TimelineItem key={experience.id} aria-label={`Experience item ${index + 1}`} >
                 <TimelineSeparator>
                   <TimelineDot variant="outlined" color="secondary" />
                   {index < experiences.length - 1 && (

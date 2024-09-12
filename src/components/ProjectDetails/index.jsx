@@ -65,9 +65,8 @@ const Desc = styled.div`
 
 const Image = styled.img`
     width: 100%;
-    object-fit: cover;
     border-radius: 12px;
-    margin-top: 30px;
+    margin-top: 25px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
 `;
 
@@ -189,7 +188,10 @@ const index = ({ openModal, setOpenModal }) => {
     return (
       <Modal open={openModal?.state || false} onClose={() => {
         setOpenModal({ state: false, project: null });
-      }}>
+      }}
+      aria-labelledby="project-title"
+      aria-describedby="project-description"
+      >
         <Container>
           <Wrapper>
             <CloseRounded

@@ -124,7 +124,7 @@ const Grade = styled.p`
 
 const EducationCard = ({ education }) => {
     return (
-        <Card aria-labelledby={`education-card-${education.id}`}>
+        <Card aria-labelledby={`education-card-${education.id}`} role="article" tabIndex="0">
             <Top>
                 <Image 
                     src={education.img} 

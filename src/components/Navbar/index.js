@@ -10,7 +10,7 @@ const Navbar = ({ navbarData, sections }) => {
   const prevScrollPos = useRef(window.pageYOffset);
   const theme = useTheme();
   const navbarRef = useRef(null);
-  const scrollThreshold = 25; // Define your threshold here
+  const scrollThreshold = 25;
 
   useEffect(() => {
     const handleScroll = throttle(() => {
