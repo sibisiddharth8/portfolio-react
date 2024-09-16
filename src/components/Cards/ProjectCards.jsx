@@ -75,7 +75,10 @@ const Loader = styled.div`
 const Tags = styled.div`
     width: 100%;
     display: flex;
+    height: 52px;
     align-items: center;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
     flex-wrap: wrap;
     gap: 8px;
     margin-top: 4px;
