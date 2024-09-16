@@ -60,7 +60,9 @@ const App = () => {
   }, []);
 
 
-  const basename = "/portfolio-react";
+  const basename = (window.location.hostname === "sibisiddharth8.github.io" || window.location.hostname === "localhost")
+    ? "/portfolio-react"
+    : "/";
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
