@@ -59,8 +59,13 @@ const App = () => {
     });
   }, []);
 
+  // Determine the basename based on the hostname
+  const isGithubPages = window.location.hostname === "sibisiddharth8.github.io";
+  const isLocalhost = window.location.hostname === "localhost";
 
-  const basename = "/portfolio-react";
+  const basename = isGithubPages || isLocalhost 
+    ? "/portfolio-react"  // For GitHub Pages and localhost
+    : "";  // For Vercel or other platforms (empty string)
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
@@ -71,7 +76,6 @@ const App = () => {
               <Route path="/" element={
                 <Home firebaseData={firebaseData} openModal={openModal} setOpenModal={setOpenModal} />
               } />
-
               {/* <Route path="/AllProjects" element={
                 <AllProjects firebaseData={firebaseData} openModal={openModal} setOpenModal={setOpenModal} />
               } /> */}
@@ -84,3 +88,4 @@ const App = () => {
 }
 
 export default App;
+
