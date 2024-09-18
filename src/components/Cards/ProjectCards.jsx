@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaGithub, FaHeart  } from "react-icons/fa"; 
+import { FaGithub } from "react-icons/fa"; 
+import { RiHeartAddFill } from "react-icons/ri";
 
 const githubsponslink = 'https://github.com/sponsors/sibisiddharth8';
 
@@ -161,7 +162,9 @@ const SocialMediaIcon = styled.a`
 
 const CardIcons = styled.div`
     display: flex;
-    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.9rem;
 `;
 
 const Avatar = styled.img`
@@ -176,6 +179,10 @@ const Avatar = styled.img`
 
 const ProjectCards = ({ project, setOpenModal }) => {
     const [isLoading, setIsLoading] = useState(true);
+
+    const handleIconClick = (event) => {
+        event.stopPropagation();
+    };
 
     return (
         <Card
@@ -220,16 +227,19 @@ const ProjectCards = ({ project, setOpenModal }) => {
                             href={project.github}
                             target="_blank"
                             aria-label={`GitHub repository for ${project.title}`}
+                            onClick={handleIconClick}
                         >
                             <FaGithub size={24} />
                         </SocialMediaIcon>
                     )}
-                    <SocialMediaIcon
-                        href={githubsponslink}
-                        target="_blank"
-                        aria-label="Sibi Siddharth S - GitHub Sponsors Page"
+
+                    <SocialMediaIcon 
+                        href={githubsponslink} 
+                        target="_blank" 
+                        aria-label="GitHub Sponsors page"
+                        onClick={handleIconClick}
                     >
-                        <FaHeart size={23} />
+                        <RiHeartAddFill size={26} />
                     </SocialMediaIcon>
                 </CardIcons>
             </CardDataHolder>
