@@ -63,7 +63,7 @@ const App = () => {
   const basename = "/portfolio-react";
 
   return (
-    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+    <ThemeProvider theme={darkTheme}>
       <Router basename={basename}>
         <Suspense>
           <Body>

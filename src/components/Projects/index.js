@@ -41,7 +41,7 @@ const Projects = ({ projectsData, openModal, setOpenModal, projectFilters, defau
 
   const filteredProjects = useMemo(() => {
     let projects;
-    if (toggle === 'top projects') {
+    if (toggle === 'top') {
       projects = projectsData.filter(project => project.rank !== undefined);
     } else if (toggle === 'all') {
       projects = projectsData;
