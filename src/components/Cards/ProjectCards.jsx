@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaHeart  } from "react-icons/fa"; 
+
+const githubsponslink = 'https://github.com/sponsors/sibisiddharth8';
 
 const Button = styled.button`
     display: none;
@@ -222,6 +224,13 @@ const ProjectCards = ({ project, setOpenModal }) => {
                             <FaGithub size={24} />
                         </SocialMediaIcon>
                     )}
+                    <SocialMediaIcon
+                        href={githubsponslink}
+                        target="_blank"
+                        aria-label="Sibi Siddharth S - GitHub Sponsors Page"
+                    >
+                        <FaHeart size={23} />
+                    </SocialMediaIcon>
                 </CardIcons>
             </CardDataHolder>
         </Card>
