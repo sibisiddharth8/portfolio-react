@@ -147,10 +147,12 @@ const ExperienceCard = ({ experience }) => {
             aria-label={`Experience at ${experience.company}`}
         >
             <Top>
-                <Image 
-                    src={experience.img} 
-                    alt={`Logo for ${experience.role} role at ${experience.company} - Sibi Siddharth S`} 
-                />
+                <a href={experience.link} target="_blank" rel="noopener noreferrer">
+                    <Image 
+                        src={experience.img} 
+                        alt={`Logo for ${experience.role} role at ${experience.company} - Sibi Siddharth S`} 
+                    />
+                </a>
                 <Body>
                     <Role>{experience.role}</Role>
                     <Company>{experience.company}</Company>
@@ -178,3 +180,4 @@ const ExperienceCard = ({ experience }) => {
 };
 
 export default ExperienceCard;
+
