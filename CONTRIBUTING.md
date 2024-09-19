@@ -18,20 +18,20 @@ git checkout -b feature-name
 
 Implement your changes and make sure everything works as expected.
 
-###4. Commit Your Changes
+### 4. Commit Your Changes
 
 Commit your changes with a clear and descriptive message:
 ```bash
 git commit -m "Brief description of changes"
 ```
 
-###5. Push to Your Branch
+### 5. Push to Your Branch
    
 Push your changes to your forked repository:
 ```bash
 git push origin feature-name
 ```
-###6. Submit a Pull Request
+### 6. Submit a Pull Request
 Submit a pull request from your branch to the main repository.
 
 ##Code Guidelines
