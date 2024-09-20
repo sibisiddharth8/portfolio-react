@@ -40,6 +40,7 @@ margin-top: 20px;
 `;
 
 export const Desc = styled.div`
+    padding-bottom: 20px;
     font-size: 18px;
     text-align: center;
     max-width: 600px;
@@ -91,16 +92,6 @@ export const CardContainer = styled.div`
     align-items: center;
     gap: 28px;
     flex-wrap: wrap;
-    // display: grid;
-    // grid-template-columns: repeat(3, 1fr);
-    // grid-gap: 32px;
-    // grid-auto-rows: minmax(100px, auto);
-    // @media (max-width: 960px) {
-    //     grid-template-columns: repeat(2, 1fr);
-    // }
-    // @media (max-width: 640px) {
-    //     grid-template-columns: repeat(1, 1fr);
-    // }
 `;
 
 export const ButtonContainer = styled.div`
@@ -125,7 +116,7 @@ export const ViewAllProjects = styled.a`
     &:hover {
         transform: scale(1.05);
     transition: all 0.4s ease-in-out;
-    box-shadow:  20px 20px 60px #1F2634,
+    box-shadow:  20px 20px 60px #1F2634;
     filter: brightness(1);
     }
     @media only screen and (max-width: 600px) {

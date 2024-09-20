@@ -1,33 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { Container, Wrapper, Title, Desc, CardContainer, ToggleButtonGroup, ToggleButton, Divider, ButtonContainer } from './ProjectsStyle';
 import ProjectCard from '../Cards/ProjectCards';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import ViewAllCard from '../Cards/ViewAllCard';
 
-const StyledLink = styled(Link)`
-    text-align: center;
-    font-size: 16px;
-    font-weight: 500;
-    color: ${({ theme }) => theme.text_primary};
-    padding: 12px 24px;
-    border-radius: 8px;
-    background-color: ${({ theme }) => theme.primary};
-    background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.5s ease;
-    &:hover {
-        transform: scale(1.05);
-        transition: all 0.4s ease-in-out;
-        box-shadow: 20px 20px 60px #1F2634;
-        filter: brightness(1);
-    }
-    @media only screen and (max-width: 600px) {
-        font-size: 12px;
-    }
-`;
-
-const Projects = ({ projectsData, openModal, setOpenModal, projectFilters, defaultfilter, viewAllProjectsButton }) => {
+const Projects = ({ projectsData, openModal, setOpenModal, projectFilters, defaultfilter, AllCard, ShowTitle, IntroText}) => {
   const [toggle, setToggle] = useState(defaultfilter);
 
   const getUniqueProjects = (projects) => {
@@ -55,11 +31,14 @@ const Projects = ({ projectsData, openModal, setOpenModal, projectFilters, defau
   return (
     <Container id="projects">
       <Wrapper>
-        <Title>Projects</Title>
-        <Desc>
-          I have worked on a wide range of projects. From web apps to AI/ML applications. Here are some of my projects.
-        </Desc>
-        <ToggleButtonGroup>
+        {ShowTitle && (<Title>Projects</Title>)}
+        {IntroText &&
+          (<Desc>
+            I have worked on a wide range of projects. From web apps to AI/ML applications. Here are some of my projects.
+          </Desc>)
+        }
+        {projectFilters && (
+          <ToggleButtonGroup>
           {projectFilters.map(category => (
             <React.Fragment key={category}>
               <ToggleButton
@@ -74,6 +53,7 @@ const Projects = ({ projectsData, openModal, setOpenModal, projectFilters, defau
             </React.Fragment>
           ))}
         </ToggleButtonGroup>
+        )}
         <CardContainer>
           {filteredProjects.map(project => (
             <ProjectCard
@@ -83,13 +63,8 @@ const Projects = ({ projectsData, openModal, setOpenModal, projectFilters, defau
               setOpenModal={setOpenModal}
             />
           ))}
+         {AllCard ? <ViewAllCard /> : null}
         </CardContainer>
-
-        {viewAllProjectsButton && (
-          <ButtonContainer>
-            <StyledLink to="/AllProjects" aria-label="View all my projects">View All Projects</StyledLink>
-          </ButtonContainer>
-        )}
       </Wrapper>
     </Container>
   );

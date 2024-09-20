@@ -72,9 +72,9 @@ const App = () => {
                 <Home firebaseData={firebaseData} openModal={openModal} setOpenModal={setOpenModal} />
               } />
 
-              {/* <Route path="/AllProjects" element={
+              <Route path="/AllProjects" element={
                 <AllProjects firebaseData={firebaseData} openModal={openModal} setOpenModal={setOpenModal} />
-              } /> */}
+              } />
             </Routes>
           </Body>
         </Suspense>

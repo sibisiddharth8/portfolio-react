@@ -43,9 +43,11 @@ const Home = ({ firebaseData, openModal, setOpenModal }) => {
           projectsData={firebaseData.projects || []} 
           openModal={openModal} 
           setOpenModal={setOpenModal} 
-          defaultfilter="all"
-          projectFilters={['all', 'Web', 'Deep Learning', 'Machine Learning']} 
-          viewAllProjectsButton={null} 
+          defaultfilter="top"
+          AllCard={1}
+          projectFilters={null} 
+          ShowTitle={true}
+          IntroText={true}
         />
       </Suspense>
 
