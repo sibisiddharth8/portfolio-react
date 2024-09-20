@@ -52,14 +52,14 @@ const ContentHolder = styled.div`
 `;
 
 const Icon = styled(FaCode)`
-    color: ${({ theme }) => theme.white};
+    color: ${({ theme }) => theme.text_secondary};
     font-size: 50px;
 `;
 
 const Text = styled.span`
     font-size: 20px;
     font-weight: bold;
-    color: ${({ theme }) => theme.white};
+    color: ${({ theme }) => theme.text_secondary};
     text-align: center;
     padding: 1rem 0 0 0;
 `;
