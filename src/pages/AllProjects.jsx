@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import ProjectDetails from '../components/ProjectDetails';
 import Footer from '../components/Footer';
 import Header from '../components/Header/Header.jsx';
@@ -10,18 +10,23 @@ const Projects = lazy(() => import('../components/Projects'));
 
 const ProjectsSection = styled.div`
   padding-top: 80px;
-`
+`;
 
 function AllProjects({ firebaseData, openModal, setOpenModal }) {
+  // Scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
-     <Helmet>
+      <Helmet>
         <title>Sibi Siddharth S | Projects | AI/ML & Web Developer Portfolio</title>
         <meta name="description" content="MyMind - the portfolio of Sibi Siddharth S, showcasing Web, Machine Learning, Deep Learning, and Python projects." />
         <meta name="keywords" content="MyMind, Sibi Siddharth S, AI/ML, Web Development, Portfolio, Projects, sibi, siddharth" />
         <meta name="author" content="Sibi Siddharth S" />
         <link rel="canonical" href="https://sibisiddharth8.github.io/portfolio-react/#/AllProjects" />
-        
+
         {/* Open Graph Data */}
         <meta property="og:title" content="MyMind - Sibi Siddharth S Portfolio | Projects" />
         <meta property="og:type" content="website" />
@@ -36,33 +41,33 @@ function AllProjects({ firebaseData, openModal, setOpenModal }) {
         <meta name="twitter:image" content="https://sibisiddharth8.github.io/portfolio-react/Og-card-banner-SibiSiddharthS.png" />
       </Helmet>
 
-
-      <Header/>
+      <Header />
       <ProjectsSection>
-      <Suspense>
-        <Projects 
-          projectsData={firebaseData.projects || []} 
-          openModal={openModal} 
-          setOpenModal={setOpenModal} 
-          defaultfilter="all"
-          projectFilters={['all', 'Web', 'Deep Learning', 'Machine Learning']}
-          ViewAllCard={0}
-          ShowTitle={null}
-          IntroText={1}
-        />
-      </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Projects 
+            projectsData={firebaseData.projects || []} 
+            openModal={openModal} 
+            setOpenModal={setOpenModal} 
+            defaultfilter="all"
+            projectFilters={['all', 'Web', 'Deep Learning', 'Machine Learning']}
+            ViewAllCard={0}
+            ShowTitle={null}
+            IntroText={1}
+          />
+        </Suspense>
 
-      {openModal.state && (
-        <ProjectDetails 
-          projectsData={firebaseData.projects || []} 
-          openModal={openModal} 
-          setOpenModal={setOpenModal} 
-        />
-      )}
+        {openModal.state && (
+          <ProjectDetails 
+            projectsData={firebaseData.projects || []} 
+            openModal={openModal} 
+            setOpenModal={setOpenModal} 
+          />
+        )}
 
-      <Footer 
-      footerData={firebaseData.Bio || {}} 
-      links={[]} />
+        <Footer 
+          footerData={firebaseData.Bio || {}} 
+          links={[]} 
+        />
       </ProjectsSection>
     </>
   );
