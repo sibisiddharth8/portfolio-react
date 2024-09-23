@@ -1,5 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route, HashRouter as Router } from 'react-router-dom'; 
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from './utils/Themes.js';
 import './App.css';
@@ -59,22 +59,19 @@ const App = () => {
     });
   }, []);
 
-
-  const basename = "/portfolio-react";
-
   return (
     <ThemeProvider theme={darkTheme}>
-      <Router basename={basename}>
+      <Router>
         <Suspense>
           <Body>
             <Routes>
               <Route path="/" element={
                 <Home firebaseData={firebaseData} openModal={openModal} setOpenModal={setOpenModal} />
               } />
-
               <Route path="/AllProjects" element={
                 <AllProjects firebaseData={firebaseData} openModal={openModal} setOpenModal={setOpenModal} />
               } />
+              <Route path="*" element={<Home firebaseData={firebaseData} openModal={openModal} setOpenModal={setOpenModal}/>} />
             </Routes>
           </Body>
         </Suspense>

@@ -5,6 +5,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import GetAppIcon from '@mui/icons-material/GetApp';
 import { GitHub } from '@mui/icons-material';
 import logo from '../../images/MyLogo.png';
+import { Link } from 'react-scroll'; // Import Link from react-scroll
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -56,11 +57,12 @@ const Nav = styled.nav`
   }
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(Link)`
   color: ${({ theme }) => theme.text_primary};
   text-decoration: none;
   font-size: 1.2rem;
   transition: color 0.2s ease-in-out;
+  cursor: pointer;
   &:hover {
     color: ${({ theme }) => theme.primary};
   }
@@ -129,13 +131,20 @@ const Footer = ({ footerData, links }) => {
   return (
     <FooterContainer>
       <FooterWrapper>
-        <a href="#">
+        <a href="">
           <LogoImg src={logo} alt="Sibi Siddharth S Logo MyMind" />
         </a>
         <Logo>Sibi Siddharth S</Logo>
         <Nav>
           {links.map((link, index) => (
-            <NavLink href={`#${link.toLowerCase()}`} key={index} aria-label={`${link} section`}>
+            <NavLink
+              to={link.toLowerCase()} 
+              smooth={true}
+              duration={100} 
+              offset={-80} 
+              key={index}
+              aria-label={`${link} section`}
+            >
               {link}
             </NavLink>
           ))}

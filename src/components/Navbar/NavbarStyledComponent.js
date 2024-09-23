@@ -1,6 +1,24 @@
 import { Link as LinkR } from 'react-router-dom';
 import styled from 'styled-components';
 import _default from '../../themes/default';
+import { Link as LinkS } from 'react-scroll';
+
+
+export const ScrollLink = styled(LinkS)`
+  color: ${({ theme }) => theme.text_primary};
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  :hover {
+    color: ${({ theme }) => theme.primary};
+  }
+
+  &.active {
+    border-bottom: 2px solid ${({ theme }) => theme.primary};
+  }
+`;
+
 
 export const Nav = styled.div`
   background-color: ${({theme}) => theme.card_light};
@@ -157,10 +175,10 @@ export const MobileMenuItems = styled.ul`
   align-items: center;
   justify-content: center;
   gap: 32px;
-  list-style: none;
+  list-style: none; 
   width: 100%;
   height: 100%;
-`
+`;
 
 export const MobileMenuLink = styled(LinkR)`
   color: ${({ theme }) => theme.text_primary};
