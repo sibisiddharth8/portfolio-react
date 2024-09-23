@@ -8,6 +8,7 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import ProjectDetails from '../components/ProjectDetails'; 
 import styled from "styled-components";
+import { Helmet } from 'react-helmet';
 
 const Wrapper = styled.div`
   background: linear-gradient(38.73deg, rgba(204, 0, 187, 0.15) 0%, rgba(201, 32, 184, 0) 50%),
@@ -22,6 +23,13 @@ const Projects = lazy(() => import('../components/Projects'));
 const Home = ({ firebaseData, openModal, setOpenModal }) => {
   return (
     <>
+      <Helmet>
+        <title>Sibi Siddharth S | AI/ML & Web Developer Portfolio</title>
+        <meta name="description" content="Welcome to the portfolio of Sibi Siddharth S, showcasing skills, projects, and experiences in AI/ML and Web Development." />
+        <meta name="keywords" content="MyMind, Sibi Siddharth S, Machine Learning, Python Developer, Frontend Developer, Fullstack Developer, Squad of Creators, Portfolio" />
+        <link rel="canonical" href="https://sibisiddharth8.github.io/portfolio-react/" />
+      </Helmet>
+
       <Navbar 
         navbarData={firebaseData.Bio || {}} 
         sections={['About', 'Skills', 'Experience', 'Projects', 'Education']} 
