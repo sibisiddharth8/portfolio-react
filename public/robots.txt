@@ -1,6 +1,4 @@
 User-agent: *
-
-# Allow full site access (optional)
 Allow: /
 
 # Sitemap location
