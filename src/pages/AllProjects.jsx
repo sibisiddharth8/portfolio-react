@@ -43,7 +43,7 @@ function AllProjects({ firebaseData, openModal, setOpenModal }) {
 
       <Header />
       <ProjectsSection>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense>
           <Projects 
             projectsData={firebaseData.projects || []} 
             openModal={openModal} 
