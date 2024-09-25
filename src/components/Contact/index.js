@@ -101,9 +101,35 @@ const ContactInputMessage = styled.textarea`
   }
 `;
 
+const TcContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  font-size: 14px;
+  color: ${({ theme }) => theme.text_secondary};
+
+  input {
+    margin-right: 8px;
+    width: 15px;
+    height: 15px;
+  }
+`;
+
+const TcText = styled.div`
+  color: ${({ theme }) => theme.BgLight};
+  @media (max-width: 575px) {
+    font-size: 12px;
+  }
+`;
+
+const TC = styled.a`
+  color: ${({ theme }) => theme.primary};
+  font-weight: 500;
+`;
+
 const ContactButton = styled.input`
   width: 100%;
-  text-decoration: none;
   text-align: center;
   background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
   padding: 13px 16px;
@@ -114,10 +140,10 @@ const ContactButton = styled.input`
   font-size: 18px;
   font-weight: 600;
   transition: all 0.4s ease-in-out;
-  
+
   &:hover {
     transform: scale(1.02);
-    box-shadow: 20px 20px 60px #1F2634;
+    box-shadow: 20px 20px 60px #1f2634;
     cursor: pointer;
   }
 
@@ -125,10 +151,16 @@ const ContactButton = styled.input`
     transform: scale(0.95);
     filter: brightness(0.5);
   }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 `;
 
 const Contact = () => {
   const [open, setOpen] = useState({ open: false, message: '', severity: 'success' });
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const form = useRef();
 
   const handleSubmit = (e) => {
@@ -137,6 +169,7 @@ const Contact = () => {
       .then((result) => {
         setOpen({ open: true, message: 'Email sent successfully!', severity: 'success' });
         form.current.reset();
+        setTermsAccepted(false);
       }, (error) => {
         console.log(error.text);
         setOpen({ open: true, message: 'Failed to send email. Please try again.', severity: 'error' });
@@ -178,7 +211,18 @@ const Contact = () => {
             required
             aria-label="Message"
           />
-          <ContactButton type="submit" value="Send" aria-label="Send Email" />
+          <TcContainer>
+            <input
+              type="checkbox"
+              checked={termsAccepted}
+              onChange={(e) => setTermsAccepted(e.target.checked)}
+              aria-label="Accept terms and conditions"
+            />
+            <TcText>
+              I agree with the <TC>Terms and Conditions</TC>
+            </TcText>
+          </TcContainer>
+          <ContactButton type="submit" value="Send" disabled={!termsAccepted} aria-label="Send Email" />
         </ContactForm>
         <Snackbar
           open={open.open}
