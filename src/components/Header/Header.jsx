@@ -49,13 +49,13 @@ const BackText = styled.span`
   }
 `;
 
-const PageTitle = styled.div`
+const PageTitle = styled.h1`
   color: ${({ theme }) => theme.white};
   font-size: large;
-  font-weight: 500;
+  font-weight: 600;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-43%);
 `;
 
 function Header() {
