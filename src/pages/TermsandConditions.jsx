@@ -4,6 +4,7 @@ import Header from '../components/Header/Header.jsx';
 import Footer from '../components/Footer/index.js';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../utils/Themes.js';
+import { Helmet } from 'react-helmet';
 
 const FooterWrapper = styled.footer`
   width: 100%;
@@ -80,6 +81,35 @@ const TermsandConditions = ({firebaseData}) => {
   });
 
   return (
+    <>
+    <Helmet>
+    {/* Title */}
+    <title>Terms & Conditions | Sibi Siddharth S Portfolio</title>
+
+    {/* Meta Tags */}
+    <meta charset="utf-8" />
+    <meta name="author" content="Sibi Siddharth S" />
+    <meta name="description" content="Read the Terms & Conditions for using Sibi Siddharth S's portfolio website and understand the guidelines around intellectual property, website use, and content ownership." />
+    <meta name="keywords" content="Terms & Conditions, Sibi Siddharth S, Portfolio, Website Policy, Intellectual Property, Use of Website, MyMind" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+
+    {/* Canonical URL */}
+    <link rel="canonical" href="https://sibisiddharth8.github.io/portfolio-react/#/terms-and-conditions" />
+
+    {/* Open Graph Data */}
+    <meta property="og:title" content="Terms & Conditions | Sibi Siddharth S Portfolio" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sibisiddharth8.github.io/portfolio-react/#/terms-and-conditions" />
+    <meta property="og:image" content="https://sibisiddharth8.github.io/portfolio-react/Og-card-banner-SibiSiddharthS.png" />
+    <meta property="og:description" content="Read the Terms & Conditions for using Sibi Siddharth S's portfolio website." />
+
+    {/* Twitter Card Data */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Terms & Conditions | Sibi Siddharth S Portfolio" />
+    <meta name="twitter:description" content="Read the Terms & Conditions for using Sibi Siddharth S's portfolio website." />
+    <meta name="twitter:image" content="https://sibisiddharth8.github.io/portfolio-react/Og-card-banner-SibiSiddharthS.png" />
+  </Helmet>
     <ThemeProvider theme={darkTheme}>
       <Body>
         <Header Title="Terms & Conditions" />
@@ -148,6 +178,7 @@ const TermsandConditions = ({firebaseData}) => {
         />
         </FooterWrapper>
     </ThemeProvider>
+    </>
   );
 }
 

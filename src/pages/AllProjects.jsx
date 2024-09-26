@@ -21,7 +21,7 @@ function AllProjects({ firebaseData, openModal, setOpenModal }) {
   return (
     <>
       <Helmet>
-        <title>Sibi Siddharth S | Projects | AI/ML & Web Developer Portfolio</title>
+        <title>Projects | Sibi Siddharth S Portfolio</title>
         <meta name="description" content="MyMind - the portfolio of Sibi Siddharth S, showcasing Web, Machine Learning, Deep Learning, and Python projects." />
         <meta name="keywords" content="MyMind, Sibi Siddharth S, AI/ML, Web Development, Portfolio, Projects, sibi, siddharth" />
         <meta name="author" content="Sibi Siddharth S" />
