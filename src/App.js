@@ -10,6 +10,7 @@ import { database } from "./FirebaseConfig";
 // Pages
 import Home from "./pages/Home";
 import AllProjects from "./pages/AllProjects.jsx";
+import TermsandConditions from "./pages/TermsandConditions.jsx";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -71,7 +72,9 @@ const App = () => {
               <Route path="/AllProjects" element={
                 <AllProjects firebaseData={firebaseData} openModal={openModal} setOpenModal={setOpenModal} />
               } />
-              <Route path="*" element={<Home firebaseData={firebaseData} openModal={openModal} setOpenModal={setOpenModal}/>} />
+              <Route path="/TermsandConditions" element={<TermsandConditions firebaseData={firebaseData}/>} />
+
+              <Route path="*" element={<Home firebaseData={firebaseData} openModal={openModal} setOpenModal={setOpenModal} />} />
             </Routes>
           </Body>
         </Suspense>

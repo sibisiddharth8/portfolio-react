@@ -41,7 +41,9 @@ function AllProjects({ firebaseData, openModal, setOpenModal }) {
         <meta name="twitter:image" content="https://sibisiddharth8.github.io/portfolio-react/Og-card-banner-SibiSiddharthS.png" />
       </Helmet>
 
-      <Header />
+      <Header 
+        Title="Projects Page"
+      />
       <ProjectsSection>
         <Suspense>
           <Projects 
@@ -66,7 +68,6 @@ function AllProjects({ firebaseData, openModal, setOpenModal }) {
 
         <Footer 
           footerData={firebaseData.Bio || {}} 
-          links={[]} 
         />
       </ProjectsSection>
     </>

@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import emailjs from '@emailjs/browser';
 import { Snackbar, Alert } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -113,8 +114,11 @@ const TcContainer = styled.div`
     margin-right: 8px;
     width: 15px;
     height: 15px;
+    border-radius: 3px;
+    cursor: pointer; 
   }
 `;
+
 
 const TcText = styled.div`
   color: ${({ theme }) => theme.BgLight};
@@ -126,6 +130,11 @@ const TcText = styled.div`
 const TC = styled.a`
   color: ${({ theme }) => theme.primary};
   font-weight: 500;
+
+  &:hover{
+    cursor: pointer;
+    opacity: 0.9;
+  }
 `;
 
 const ContactButton = styled.input`
@@ -153,12 +162,17 @@ const ContactButton = styled.input`
   }
 
   &:disabled {
-    opacity: 0.6;
+    opacity: 0.65;
     cursor: not-allowed;
   }
 `;
 
 const Contact = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/TermsandConditions');
+  };
+
   const [open, setOpen] = useState({ open: false, message: '', severity: 'success' });
   const [termsAccepted, setTermsAccepted] = useState(false);
   const form = useRef();
@@ -219,7 +233,7 @@ const Contact = () => {
               aria-label="Accept terms and conditions"
             />
             <TcText>
-              I agree with the <TC>Terms and Conditions</TC>
+              I agree with the <TC onClick={handleClick} >Terms and Conditions</TC>
             </TcText>
           </TcContainer>
           <ContactButton type="submit" value="Send" disabled={!termsAccepted} aria-label="Send Email" />

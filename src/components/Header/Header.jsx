@@ -40,7 +40,6 @@ const BackButton = styled.button`
 const BackIcon = styled(IoIosArrowBack)`
   color: ${({ theme }) => theme.white};
   font-size: 24px;
-
 `;
 
 const BackText = styled.span`
@@ -56,9 +55,10 @@ const PageTitle = styled.h1`
   position: absolute;
   left: 50%;
   transform: translateX(-43%);
+  white-space: nowrap;
 `;
 
-function Header() {
+function Header({ Title }) {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -71,7 +71,7 @@ function Header() {
         <BackIcon />
         <BackText>Back</BackText>
       </BackButton>
-      <PageTitle>Projects Page</PageTitle>
+      <PageTitle>{Title || ''}</PageTitle>
     </HeaderContainer>
   );
 }

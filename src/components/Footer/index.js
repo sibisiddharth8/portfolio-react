@@ -106,7 +106,7 @@ const Copyright = styled.p`
   text-align: center;
 `;
 
-const Footer = ({ footerData, links }) => {
+const Footer = ({ footerData, links=[] }) => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
 
   useEffect(() => {
