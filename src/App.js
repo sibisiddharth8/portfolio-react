@@ -2,7 +2,6 @@ import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Routes, Route, HashRouter as Router } from 'react-router-dom'; 
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from './utils/Themes.js';
-import './App.css';
 import styled from "styled-components";
 import { ref, onValue } from "firebase/database";
 import { database } from "./FirebaseConfig";
@@ -11,6 +10,7 @@ import { database } from "./FirebaseConfig";
 import Home from "./pages/Home";
 import AllProjects from "./pages/AllProjects.jsx";
 import TermsandConditions from "./pages/TermsandConditions.jsx";
+import './App.css'; // Move this to the bottom or leave it here if it doesn't affect styles
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -73,7 +73,6 @@ const App = () => {
                 <AllProjects firebaseData={firebaseData} openModal={openModal} setOpenModal={setOpenModal} />
               } />
               <Route path="/TermsandConditions" element={<TermsandConditions firebaseData={firebaseData}/>} />
-
               <Route path="*" element={<Home firebaseData={firebaseData} openModal={openModal} setOpenModal={setOpenModal} />} />
             </Routes>
           </Body>
