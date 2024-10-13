@@ -97,6 +97,7 @@ const ContactInputMessage = styled.textarea`
   color: ${({ theme }) => theme.text_primary};
   border-radius: 12px;
   padding: 12px 16px;
+  resize: vertical;
   &:focus {
     border: 1px solid ${({ theme }) => theme.primary};
   }

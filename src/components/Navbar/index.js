@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Nav, NavbarContainer, Span, NavLogo, NavItems, GitHubButton, ButtonContainer, MobileIcon, MobileMenu } from './NavbarStyledComponent'; 
+import { Nav, NavbarContainer, Span, NavItems, GitHubButton, ButtonContainer, MobileIcon, MobileMenu } from './NavbarStyledComponent'; 
 import { FaBars } from 'react-icons/fa';
 import { useTheme } from 'styled-components';
 import { throttle } from 'lodash';
@@ -65,11 +65,9 @@ const Navbar = ({ navbarData, sections }) => {
   return (
     <Nav className={scrollDirection === 'down' ? 'hidden' : ''} ref={navbarRef}>
       <NavbarContainer>
-        <NavLogo to='/'>
-          <a style={{ display: "flex", alignItems: "center", color: "white", cursor: 'pointer', textDecoration: 'none'}}>
+          <a href={navbarData?.portalLink} target='_blank' style={{ display: "flex", alignItems: "center", color: "white", cursor: 'pointer', textDecoration: 'none'}}>
             <Span>MyMind</Span>
           </a>
-        </NavLogo>
         <MobileIcon aria-label="Open mobile menu">
           <FaBars onClick={() => setIsOpen(!isOpen)} />
         </MobileIcon>
