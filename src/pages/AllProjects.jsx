@@ -11,6 +11,7 @@ const Projects = lazy(() => import('../components/Projects'));
 const ProjectsSection = styled.div`
   padding-top: 80px;
   background: linear-gradient(343.07deg, rgba(132, 59, 206, 0.06) 5.71%, rgba(132, 59, 206, 0) 60.83%);
+  min-height: 100vh;
 `;
 
 function AllProjects({ firebaseData, openModal, setOpenModal }) {
